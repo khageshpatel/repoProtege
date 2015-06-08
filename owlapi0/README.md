@@ -1,7 +1,7 @@
 owlapi
 ======
 
-OWL API main repository
+OWL API local repository
 
 The OWL API is a Java API for creating, manipulating and serialising OWL Ontologies. 
 The latest version of the API supports OWL 2.
