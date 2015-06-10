@@ -1,0 +1,455 @@
+
+C:\Users\khagesh\Desktop\repo>cd owlapi0 
+
+C:\Users\khagesh\Desktop\repo\owlapi0>mvn -DskipTests clean install -Dmaven.javadoc.skip=true 
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] OWLAPI
+[INFO] OWLAPI Model Interfaces and utilities
+[INFO] OWLAPI Default Implementation
+[INFO] tools
+[INFO] parsers
+[INFO] oboformat parser adapted for direct OWLAPI inclusion
+[INFO] OWLAPI Binding and Config
+[INFO] public interface enforcement, tests and tutorials
+[INFO] OWLAPI Distribution
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OWLAPI 3.5.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ owlapi-parent ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-parent ---
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ owlapi-parent >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-parent ---
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ owlapi-parent <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ owlapi-parent ---
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.8.1:jar (attach-javadocs) @ owlapi-parent ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ owlapi-parent ---
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\pom.xml to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-parent\3.5.0\owlapi-parent-3.5.0.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OWLAPI Model Interfaces and utilities 3.5.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ owlapi-api ---
+[INFO] Deleting C:\Users\khagesh\Desktop\repo\owlapi0\api\target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-api ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ owlapi-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\api\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ owlapi-api ---
+[INFO] Compiling 559 source files to C:\Users\khagesh\Desktop\repo\owlapi0\api\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ owlapi-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\api\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ owlapi-api ---
+[INFO] Compiling 9 source files to C:\Users\khagesh\Desktop\repo\owlapi0\api\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ owlapi-api ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:bundle (default-bundle) @ owlapi-api ---
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ owlapi-api >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-api ---
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ owlapi-api <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ owlapi-api ---
+[INFO] Building jar: C:\Users\khagesh\Desktop\repo\owlapi0\api\target\owlapi-api-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.8.1:jar (attach-javadocs) @ owlapi-api ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ owlapi-api ---
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\api\target\owlapi-api-3.5.0.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-api\3.5.0\owlapi-api-3.5.0.jar
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\api\pom.xml to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-api\3.5.0\owlapi-api-3.5.0.pom
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\api\target\owlapi-api-3.5.0-sources.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-api\3.5.0\owlapi-api-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:install (default-install) @ owlapi-api ---
+[INFO] Installing net/sourceforge/owlapi/owlapi-api/3.5.0/owlapi-api-3.5.0.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OWLAPI Default Implementation 3.5.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ owlapi-impl ---
+[INFO] Deleting C:\Users\khagesh\Desktop\repo\owlapi0\impl\target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-impl ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ owlapi-impl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\impl\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ owlapi-impl ---
+[INFO] Compiling 161 source files to C:\Users\khagesh\Desktop\repo\owlapi0\impl\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ owlapi-impl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\impl\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ owlapi-impl ---
+[INFO] Compiling 1 source file to C:\Users\khagesh\Desktop\repo\owlapi0\impl\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ owlapi-impl ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:bundle (default-bundle) @ owlapi-impl ---
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ owlapi-impl >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-impl ---
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ owlapi-impl <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ owlapi-impl ---
+[INFO] Building jar: C:\Users\khagesh\Desktop\repo\owlapi0\impl\target\owlapi-impl-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.8.1:jar (attach-javadocs) @ owlapi-impl ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ owlapi-impl ---
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\impl\target\owlapi-impl-3.5.0.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-impl\3.5.0\owlapi-impl-3.5.0.jar
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\impl\pom.xml to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-impl\3.5.0\owlapi-impl-3.5.0.pom
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\impl\target\owlapi-impl-3.5.0-sources.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-impl\3.5.0\owlapi-impl-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:install (default-install) @ owlapi-impl ---
+[INFO] Installing net/sourceforge/owlapi/owlapi-impl/3.5.0/owlapi-impl-3.5.0.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tools 3.5.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ owlapi-tools ---
+[INFO] Deleting C:\Users\khagesh\Desktop\repo\owlapi0\tools\target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-tools ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ owlapi-tools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\tools\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ owlapi-tools ---
+[INFO] Compiling 77 source files to C:\Users\khagesh\Desktop\repo\owlapi0\tools\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ owlapi-tools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\tools\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ owlapi-tools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ owlapi-tools ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:bundle (default-bundle) @ owlapi-tools ---
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ owlapi-tools >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-tools ---
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ owlapi-tools <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ owlapi-tools ---
+[INFO] Building jar: C:\Users\khagesh\Desktop\repo\owlapi0\tools\target\owlapi-tools-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.8.1:jar (attach-javadocs) @ owlapi-tools ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ owlapi-tools ---
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\tools\target\owlapi-tools-3.5.0.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-tools\3.5.0\owlapi-tools-3.5.0.jar
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\tools\pom.xml to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-tools\3.5.0\owlapi-tools-3.5.0.pom
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\tools\target\owlapi-tools-3.5.0-sources.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-tools\3.5.0\owlapi-tools-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:install (default-install) @ owlapi-tools ---
+[INFO] Installing net/sourceforge/owlapi/owlapi-tools/3.5.0/owlapi-tools-3.5.0.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building parsers 3.5.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ owlapi-parsers ---
+[INFO] Deleting C:\Users\khagesh\Desktop\repo\owlapi0\parsers\target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-parsers ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ owlapi-parsers ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\parsers\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ owlapi-parsers ---
+[INFO] Compiling 481 source files to C:\Users\khagesh\Desktop\repo\owlapi0\parsers\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ owlapi-parsers ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\parsers\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ owlapi-parsers ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ owlapi-parsers ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:bundle (default-bundle) @ owlapi-parsers ---
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ owlapi-parsers >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-parsers ---
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ owlapi-parsers <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ owlapi-parsers ---
+[INFO] Building jar: C:\Users\khagesh\Desktop\repo\owlapi0\parsers\target\owlapi-parsers-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.8.1:jar (attach-javadocs) @ owlapi-parsers ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ owlapi-parsers ---
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\parsers\target\owlapi-parsers-3.5.0.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-parsers\3.5.0\owlapi-parsers-3.5.0.jar
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\parsers\pom.xml to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-parsers\3.5.0\owlapi-parsers-3.5.0.pom
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\parsers\target\owlapi-parsers-3.5.0-sources.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-parsers\3.5.0\owlapi-parsers-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:install (default-install) @ owlapi-parsers ---
+[INFO] Installing net/sourceforge/owlapi/owlapi-parsers/3.5.0/owlapi-parsers-3.5.0.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building oboformat parser adapted for direct OWLAPI inclusion 3.5.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ owlapi-oboformat ---
+[INFO] Deleting C:\Users\khagesh\Desktop\repo\owlapi0\oboformat\target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-oboformat ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ owlapi-oboformat ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\oboformat\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ owlapi-oboformat ---
+[INFO] Compiling 34 source files to C:\Users\khagesh\Desktop\repo\owlapi0\oboformat\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ owlapi-oboformat ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\oboformat\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ owlapi-oboformat ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ owlapi-oboformat ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:bundle (default-bundle) @ owlapi-oboformat ---
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ owlapi-oboformat >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-oboformat ---
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ owlapi-oboformat <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ owlapi-oboformat ---
+[INFO] Building jar: C:\Users\khagesh\Desktop\repo\owlapi0\oboformat\target\owlapi-oboformat-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.8.1:jar (attach-javadocs) @ owlapi-oboformat ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ owlapi-oboformat ---
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\oboformat\target\owlapi-oboformat-3.5.0.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-oboformat\3.5.0\owlapi-oboformat-3.5.0.jar
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\oboformat\pom.xml to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-oboformat\3.5.0\owlapi-oboformat-3.5.0.pom
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\oboformat\target\owlapi-oboformat-3.5.0-sources.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-oboformat\3.5.0\owlapi-oboformat-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:install (default-install) @ owlapi-oboformat ---
+[INFO] Installing net/sourceforge/owlapi/owlapi-oboformat/3.5.0/owlapi-oboformat-3.5.0.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OWLAPI Binding and Config 3.5.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ owlapi-apibinding ---
+[INFO] Deleting C:\Users\khagesh\Desktop\repo\owlapi0\apibinding\target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-apibinding ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ owlapi-apibinding ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\apibinding\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ owlapi-apibinding ---
+[INFO] Compiling 2 source files to C:\Users\khagesh\Desktop\repo\owlapi0\apibinding\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ owlapi-apibinding ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\apibinding\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ owlapi-apibinding ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ owlapi-apibinding ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:bundle (default-bundle) @ owlapi-apibinding ---
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ owlapi-apibinding >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-apibinding ---
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ owlapi-apibinding <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ owlapi-apibinding ---
+[INFO] Building jar: C:\Users\khagesh\Desktop\repo\owlapi0\apibinding\target\owlapi-apibinding-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.8.1:jar (attach-javadocs) @ owlapi-apibinding ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ owlapi-apibinding ---
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\apibinding\target\owlapi-apibinding-3.5.0.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-apibinding\3.5.0\owlapi-apibinding-3.5.0.jar
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\apibinding\pom.xml to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-apibinding\3.5.0\owlapi-apibinding-3.5.0.pom
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\apibinding\target\owlapi-apibinding-3.5.0-sources.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-apibinding\3.5.0\owlapi-apibinding-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:install (default-install) @ owlapi-apibinding ---
+[INFO] Installing net/sourceforge/owlapi/owlapi-apibinding/3.5.0/owlapi-apibinding-3.5.0.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building public interface enforcement, tests and tutorials 3.5.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ owlapi-contract ---
+[INFO] Deleting C:\Users\khagesh\Desktop\repo\owlapi0\contract\target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-contract ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ owlapi-contract ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\contract\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ owlapi-contract ---
+[INFO] Compiling 7 source files to C:\Users\khagesh\Desktop\repo\owlapi0\contract\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ owlapi-contract ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 162 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ owlapi-contract ---
+[INFO] Compiling 434 source files to C:\Users\khagesh\Desktop\repo\owlapi0\contract\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ owlapi-contract ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ owlapi-contract ---
+[INFO] Building jar: C:\Users\khagesh\Desktop\repo\owlapi0\contract\target\owlapi-contract-3.5.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ owlapi-contract >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-contract ---
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ owlapi-contract <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ owlapi-contract ---
+[INFO] Building jar: C:\Users\khagesh\Desktop\repo\owlapi0\contract\target\owlapi-contract-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.8.1:jar (attach-javadocs) @ owlapi-contract ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ owlapi-contract ---
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\contract\target\owlapi-contract-3.5.0.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-contract\3.5.0\owlapi-contract-3.5.0.jar
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\contract\pom.xml to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-contract\3.5.0\owlapi-contract-3.5.0.pom
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\contract\target\owlapi-contract-3.5.0-sources.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-contract\3.5.0\owlapi-contract-3.5.0-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OWLAPI Distribution 3.5.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ owlapi-distribution ---
+[INFO] Deleting C:\Users\khagesh\Desktop\repo\owlapi0\distribution\target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-distribution ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ owlapi-distribution ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\distribution\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ owlapi-distribution ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ owlapi-distribution ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\khagesh\Desktop\repo\owlapi0\distribution\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ owlapi-distribution ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ owlapi-distribution ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:bundle (default-bundle) @ owlapi-distribution ---
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ owlapi-distribution >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ owlapi-distribution ---
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ owlapi-distribution <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ owlapi-distribution ---
+[INFO] No sources in project. Archive not created.
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.8.1:jar (attach-javadocs) @ owlapi-distribution ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.8.1:jar (attach-javadoc) @ owlapi-distribution ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.4:single (attach-sources) @ owlapi-distribution ---
+[INFO] Reading assembly descriptor: src/assembly/sources.xml
+[INFO] Building jar: C:\Users\khagesh\Desktop\repo\owlapi0\distribution\target\owlapi-distribution-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ owlapi-distribution ---
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\distribution\target\owlapi-distribution-3.5.0.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-distribution\3.5.0\owlapi-distribution-3.5.0.jar
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\distribution\pom.xml to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-distribution\3.5.0\owlapi-distribution-3.5.0.pom
+[INFO] Installing C:\Users\khagesh\Desktop\repo\owlapi0\distribution\target\owlapi-distribution-3.5.0-sources.jar to C:\Users\khagesh\.m2\repository\net\sourceforge\owlapi\owlapi-distribution\3.5.0\owlapi-distribution-3.5.0-sources.jar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:install (default-install) @ owlapi-distribution ---
+[INFO] Installing net/sourceforge/owlapi/owlapi-distribution/3.5.0/owlapi-distribution-3.5.0.jar
+[INFO] Installing net/sourceforge/owlapi/owlapi-distribution/3.5.0/owlapi-distribution-3.5.0-sources.jar
+[INFO] Writing OBR metadata
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] OWLAPI ............................................. SUCCESS [  1.099 s]
+[INFO] OWLAPI Model Interfaces and utilities .............. SUCCESS [ 14.513 s]
+[INFO] OWLAPI Default Implementation ...................... SUCCESS [  8.947 s]
+[INFO] tools .............................................. SUCCESS [  3.594 s]
+[INFO] parsers ............................................ SUCCESS [ 16.164 s]
+[INFO] oboformat parser adapted for direct OWLAPI inclusion SUCCESS [  3.592 s]
+[INFO] OWLAPI Binding and Config .......................... SUCCESS [  1.125 s]
+[INFO] public interface enforcement, tests and tutorials .. SUCCESS [ 16.200 s]
+[INFO] OWLAPI Distribution ................................ SUCCESS [  4.216 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:10 min
+[INFO] Finished at: 2015-06-08T16:19:00-04:00
+[INFO] Final Memory: 84M/682M
+[INFO] ------------------------------------------------------------------------

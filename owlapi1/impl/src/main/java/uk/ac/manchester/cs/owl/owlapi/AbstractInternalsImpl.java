@@ -420,4 +420,15 @@ public abstract class AbstractInternalsImpl implements Internals, Serializable {
             getAnnotationAssertionAxiomsBySubject() {
         return annotationAssertionAxiomsBySubject;
     }
+	
+	@Override
+	public void addRelation(String ns, String name){
+	}
+	
+	@Override
+	public boolean doesContainRelation(String ns, String name){
+		System.out.println("--> Called abstract Impl object this should not happen");
+		return false;
+	}
+	
 }

@@ -1597,4 +1597,23 @@ public class OWLOntologyImpl extends OWLObjectImpl implements
             ref = OWLOntologyImpl.this.containsReference(property);
         }
     }
+
+	public void addRelation(String name){
+		if(name.split("#").length >= 2){
+			internals.addRelation(name.split("#")[0],name.split("#")[1]);
+		}
+		else{
+			internals.addRelation("",name);
+		}
+	}
+	
+	public boolean doesContainRelation(String name){
+		if(name.split("#").length >= 2){
+			return internals.doesContainRelation(name.split("#")[0],name.split("#")[1]);
+		}
+		else{
+			return internals.doesContainRelation("",name);
+		}
+	}
+	
 }

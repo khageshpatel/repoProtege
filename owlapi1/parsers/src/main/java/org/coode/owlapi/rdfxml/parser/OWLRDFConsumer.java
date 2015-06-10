@@ -52,6 +52,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.semanticweb.owlapi.rdf.util.RDFConstants;
+
 import org.semanticweb.owlapi.io.RDFLiteral;
 import org.semanticweb.owlapi.io.RDFNode;
 import org.semanticweb.owlapi.io.RDFOntologyFormat;
@@ -2268,8 +2270,21 @@ public class OWLRDFConsumer implements RDFConsumer {
     public void statementWithResourceValue(String subject, String predicate,
             String object) throws SAXException {
         try {
-			//System.out.println("--> statementWithResourceValue called ");
-			//System.out.println(subject + "-->" + predicate + "-->" + object);
+			if(object.split("#")[0].equals("http://www.pace.edu/rel-syntax-ns")){
+				System.out.println("--> statementWithResourceValue called ");
+				System.out.println(subject + "-->" + predicate + "-->" + object);
+			}
+			
+			if(object.split("#").length == 2){
+				
+				
+				if(object.split("#")[1].equals("NewRelation")){
+					//System.out.println("--> resource value called: "+object.split("#")[1]);
+					handleRelationDeclaration(subject);
+					System.out.println("--> " + this.ontology.doesContainRelation(subject));
+					return;
+				}
+			}
             incrementTripleCount();
             IRI subjectIRI = getIRI(subject);
             IRI predicateIRI = getIRI(predicate);
@@ -3547,4 +3562,8 @@ public class OWLRDFConsumer implements RDFConsumer {
             objects.add(con);
         }
     }
+	
+	public void handleRelationDeclaration(String relationName){
+		this.ontology.addRelation(relationName);
+	}
 }

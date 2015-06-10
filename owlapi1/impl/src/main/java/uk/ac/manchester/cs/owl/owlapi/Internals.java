@@ -505,4 +505,14 @@ public interface Internals {
      *        chain to remove
      */
     void removePropertyChainSubPropertyAxioms(OWLSubPropertyChainOfAxiom ax);
+	
+	/**
+	 * Add a relation 
+	 */
+	
+	void addRelation(String ns, String name);
+	
+	
+	boolean doesContainRelation(String ns, String name);
+	
 }

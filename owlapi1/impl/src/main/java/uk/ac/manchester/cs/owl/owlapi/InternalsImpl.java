@@ -45,6 +45,8 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Map;
+import java.util.HashMap;
 
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.OWLAnnotation;
@@ -161,7 +163,8 @@ public class InternalsImpl extends AbstractInternalsImpl {
     protected final MapPointer<OWLDatatype, OWLAxiom> owlDatatypeReferences = build();
     protected final MapPointer<OWLAnnotationProperty, OWLAxiom> owlAnnotationPropertyReferences = build();
     protected final MapPointer<OWLEntity, OWLDeclarationAxiom> declarationsByEntity = build();
-
+	protected Map<String, OWLRelation> relationMap = new HashMap<String, OWLRelation>();
+	
     @Override
     public <K, V extends OWLAxiom> Set<K> getKeyset(Pointer<K, V> pointer) {
         final MapPointer<K, V> mapPointer = (MapPointer<K, V>) pointer;
@@ -1043,4 +1046,21 @@ public class InternalsImpl extends AbstractInternalsImpl {
             // later stage.
         }
     }
+
+	@Override
+	public void addRelation(String ns, String name){
+		relationMap.put(name,new OWLRelation(ns, name));
+	}
+	
+	@Override
+	public boolean doesContainRelation(String ns, String name){
+		if(relationMap.get(name) == null){
+			return false;
+		}
+		else
+			if(relationMap.get(name).getNS().equals(ns))
+				return true;
+			else
+				return false;
+	}
 }
