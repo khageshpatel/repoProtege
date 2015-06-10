@@ -793,6 +793,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager,
     public OWLOntology loadOntologyFromOntologyDocument(IRI documentIRI)
             throws OWLOntologyCreationException {
         // Ontology URI not known in advance
+		logger.info("IRI loaded event");
         return loadOntology(null, new IRIDocumentSource(documentIRI),
                 new OWLOntologyLoaderConfiguration());
     }
@@ -802,6 +803,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager,
             OWLOntologyDocumentSource documentSource)
             throws OWLOntologyCreationException {
         // Ontology URI not known in advance
+		logger.info("Document source event 1");
         return loadOntology(null, documentSource,
                 new OWLOntologyLoaderConfiguration());
     }
@@ -811,12 +813,14 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager,
             OWLOntologyDocumentSource documentSource,
             OWLOntologyLoaderConfiguration config)
             throws OWLOntologyCreationException {
+		logger.info("Document source event");
         return loadOntology(null, documentSource, config);
     }
 
     @Override
     public OWLOntology loadOntologyFromOntologyDocument(File file)
             throws OWLOntologyCreationException {
+		logger.info("File loaded event");
         return loadOntologyFromOntologyDocument(new FileDocumentSource(file));
     }
 
@@ -824,6 +828,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager,
     public OWLOntology
             loadOntologyFromOntologyDocument(InputStream inputStream)
                     throws OWLOntologyCreationException {
+			logger.info("Inpur Stream loaded event");
         return loadOntologyFromOntologyDocument(new StreamDocumentSource(
                 inputStream));
     }
@@ -847,7 +852,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager,
             OWLOntologyDocumentSource documentSource,
             OWLOntologyLoaderConfiguration configuration)
             throws OWLOntologyCreationException {
-		logger.info("-- khagesh 5.1 --");
+		logger.info("-- khagesh 5.1 try --");
         if (loadCount.get() != importsLoadCount.get()) {
             System.err
                     .println("Runtime Warning: Parsers should load imported ontologies using the makeImportLoadRequest method.");

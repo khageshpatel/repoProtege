@@ -79,6 +79,7 @@ public class OWLXMLParser extends AbstractOWLParser {
             throws OWLParserException, IOException, OWLOntologyChangeException,
             UnloadableImportException {
         InputSource isrc = null;
+		System.out.println("--> OWLParser called");
         try {
             System.setProperty("entityExpansionLimit", "100000000");
             OWLXMLOntologyFormat format = new OWLXMLOntologyFormat();

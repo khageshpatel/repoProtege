@@ -75,6 +75,8 @@ public class RDFXMLParser extends AbstractOWLParser {
             OWLOntology ontology, OWLOntologyLoaderConfiguration configuration)
             throws OWLParserException, IOException, OWLOntologyChangeException,
             UnloadableImportException {
+		System.out.println("--> RDFXMLParser called");
+		System.out.println(ontology.toString());
         InputSource is = null;
         try {
             final RDFXMLOntologyFormat format = new RDFXMLOntologyFormat();
@@ -121,7 +123,11 @@ public class RDFXMLParser extends AbstractOWLParser {
             consumer.setIRIProvider(prov);
             consumer.setOntologyFormat(format);
             is = getInputSource(documentSource, configuration);
+			System.out.println("--> RDFXMLParser status");
+			System.out.println(ontology.toString());
             parser.parse(is, consumer);
+			System.out.println("-->");
+			System.out.println(ontology.toString());
             return format;
         } catch (TranslatedOntologyChangeException e) {
             throw e.getCause();

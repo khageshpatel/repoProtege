@@ -2255,6 +2255,8 @@ public class OWLRDFConsumer implements RDFConsumer {
     @Override
     public void statementWithLiteralValue(String subject, String predicate,
             String object, String lang, String datatype) throws SAXException {
+		//System.out.println("--> statementWithLiteralValue called ");
+		//System.out.println(subject + "-->" + predicate + "-->" + object + "-->" + lang + "-->" + datatype);
         incrementTripleCount();
         IRI subjectIRI = getIRI(subject);
         IRI predicateIRI = getIRI(predicate);
@@ -2266,6 +2268,8 @@ public class OWLRDFConsumer implements RDFConsumer {
     public void statementWithResourceValue(String subject, String predicate,
             String object) throws SAXException {
         try {
+			//System.out.println("--> statementWithResourceValue called ");
+			//System.out.println(subject + "-->" + predicate + "-->" + object);
             incrementTripleCount();
             IRI subjectIRI = getIRI(subject);
             IRI predicateIRI = getIRI(predicate);

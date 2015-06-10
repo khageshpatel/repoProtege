@@ -212,6 +212,8 @@ public class ParsableOWLOntologyFactory extends AbstractInMemOWLOntologyFactory 
                 OWLOntologyFormat format = parser.parse(documentSource, ont,
                         configuration);
                 mediator.setOntologyFormat(ont, format);
+				logger.info("-->");
+				logger.info(parser.getClass().getName());
                 return ont;
             } catch (IOException e) {
                 // No hope of any parsers working?

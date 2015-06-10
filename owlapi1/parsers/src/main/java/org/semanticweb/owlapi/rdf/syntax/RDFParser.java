@@ -650,6 +650,8 @@ public class RDFParser extends DefaultHandler implements RDFConstants {
                 String value = atts.getValue(i);
                 String reificationID = reificationManager
                         .getReificationID(null);
+				//System.out.println("--> propertyAttributes called ");
+				//System.out.println(subjectIRI + "-->" + nsIRI + localName + "-->" + value + "-->" + reificationID);
                 statementWithLiteralValue(subjectIRI, nsIRI + localName, value,
                         null, reificationID);
             } else if (RDFNS.equals(nsIRI) && ELT_TYPE.equals(localName)) {
@@ -902,11 +904,16 @@ public class RDFParser extends DefaultHandler implements RDFConstants {
             boolean isRDFNS = RDFNS.equals(namespaceIRI);
             m_reificationManager = getReificationManager(atts);
             if (!isRDFNS || !ELT_DESCRIPTION.equals(localName)) {
+				//Only pass class object property and other not someValuesFrom,onproperty
+				//System.out.println("--> NodeElement no RDFNS called ");
+				//System.out.println(m_subjectIRI + "-->" + RDF_TYPE + "-->" + namespaceIRI + localName + "-->" + m_reificationManager.getReificationID(null));
                 statementWithResourceValue(m_subjectIRI, RDF_TYPE, namespaceIRI
                         + localName,
                         m_reificationManager.getReificationID(null));
             }
             checkUnsupportedAttributes(atts);
+			//Currently not useful
+			//System.out.println("--> Calling propertyAttributes");
             propertyAttributes(m_subjectIRI, atts, m_reificationManager);
             pushState(new PropertyElementList(this));
         }
@@ -945,18 +952,30 @@ public class RDFParser extends DefaultHandler implements RDFConstants {
                 String qName, Attributes atts) throws SAXException {
             String parseType = atts.getValue(RDFNS, ATTR_PARSE_TYPE);
             if (PARSE_TYPE_LITERAL.equals(parseType)) {
+				System.out.println("--> PropertyElementList");
+				System.out.println(parseType);
                 pushState(new ParseTypeLiteralPropertyElement(m_nodeElement));
             } else if (PARSE_TYPE_RESOURCE.equals(parseType)) {
+				System.out.println("--> PropertyElementList");
+				System.out.println(parseType);
                 pushState(new ParseTypeResourcePropertyElement(m_nodeElement));
             } else if (PARSE_TYPE_COLLECTION.equals(parseType)) {
+				System.out.println("--> PropertyElementList");
+				System.out.println(parseType);
                 pushState(new ParseTypeCollectionPropertyElement(m_nodeElement));
             } else if (parseType != null) {
+				System.out.println("--> PropertyElementList");
+				System.out.println(parseType);
                 pushState(new ParseTypeLiteralPropertyElement(m_nodeElement));
             } else {
                 String objectIRI = getNodeIDResourceResourceIRI(atts);
                 if (objectIRI != null) {
+					System.out.println("--> Pushed empty property element");
+					System.out.println(objectIRI);
                     pushState(new EmptyPropertyElement(m_nodeElement));
                 } else {
+					System.out.println("--> Pushed ResourceOrLiteralPropertyElement");
+					System.out.println("--> " + namespaceIRI + "#" + localName);
                     pushState(new ResourceOrLiteralPropertyElement(
                             m_nodeElement));
                 }
