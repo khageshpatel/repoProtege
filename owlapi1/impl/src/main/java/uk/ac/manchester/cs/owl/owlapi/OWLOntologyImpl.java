@@ -234,7 +234,6 @@ public class OWLOntologyImpl extends OWLObjectImpl implements
 
     @Override
     public Set<OWLAxiom> getAxioms() {
-		System.out.println("5.1 called");
         return internals.getAxioms();
     }
 

@@ -53,7 +53,11 @@ public class OWLRelationInstanceContainer{
 	public Map<String,String> getEdgeLabelMap(){
 		Map<String,String> edgeMap = new HashMap<String,String>();
 		for(OWLRelationInstance ins : relationInstances){
-			edgeMap.put(ins.getRelatedTo().toStringID(),ins.toRelationName());
+			if(edgeMap.containsKey(ins.getRelatedTo().toStringID())){
+				edgeMap.put(ins.getRelatedTo().toStringID(),edgeMap.get(ins.getRelatedTo().toStringID()) + "&" + ins.toRelationName());
+			}
+			else
+				edgeMap.put(ins.getRelatedTo().toStringID(),ins.toRelationName());
 		}
 		return edgeMap;
 	}

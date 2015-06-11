@@ -4,6 +4,8 @@ package uk.ac.man.cs.mig.coode.owlviz.model;
 import org.apache.log4j.Logger;
 import java.util.Set;
 
+import org.semanticweb.owlapi.util.VersionInfo;
+
 import org.protege.editor.owl.model.OWLModelManager;
 import org.protege.editor.owl.model.event.EventType;
 import org.protege.editor.owl.model.event.OWLModelManagerChangeEvent;
@@ -111,6 +113,7 @@ public class AbstractOWLClassGraphModel extends AbstractGraphModel {
 		for(OWLOntology ont : owlModelManager.getActiveOntologies()){
 			//logger.info("Object Property:");
 			//logger.info(getObjectPropertiesInSignature())
+			//ont.printAllRelations();
 			Set<OWLClassAxiom> tempAx=ont.getAxioms(t);
             for(OWLClassAxiom ax: tempAx){
                 for(OWLClassExpression nce:ax.getNestedClassExpressions())
@@ -140,6 +143,8 @@ public class AbstractOWLClassGraphModel extends AbstractGraphModel {
 						}
                 }
 			}
+			//System.out.println("--> OWLAPI called");
+			//System.out.println(VersionInfo.getVersionInfo().getVersion());
 			//logger.info("Signature:");
 			//logger.info(obj.getSignature());
 			return related;
@@ -150,9 +155,9 @@ public class AbstractOWLClassGraphModel extends AbstractGraphModel {
             children.addAll(provider.getChildren(obj));
             children.addAll(provider.getEquivalents(obj));
 			//children.addAll(getObjRelChildren(obj));
-			//for(OWLOntology ont : owlModelManager.getActiveOntologies()){
-				//children.addAll(ont.getAllOwlClasses((OWLClass)obj));
-			//}
+			for(OWLOntology ont : owlModelManager.getActiveOntologies()){
+				children.addAll(ont.getAllOwlClasses((OWLClass)obj));
+			}
         return children;
     }
 
@@ -191,23 +196,35 @@ public class AbstractOWLClassGraphModel extends AbstractGraphModel {
         return false;
     }
 
+	//Add the case of is-a
+	
     public Object getRelationshipType(Object parentObject, Object childObject) {
-		/** OWLClass parent = (OWLClass)parentObject;
-		*OWLClass child  = (OWLClass)childObject;
-		*String KeyToSearch = parent.getIRI().toString().split("#")[1]+"#"+child.getIRI().toString().split("#")[1];
+		OWLClass parent = (OWLClass)parentObject;
+		OWLClass child  = (OWLClass)childObject;
+		/**String KeyToSearch = parent.getIRI().toString().split("#")[1]+"#"+child.getIRI().toString().split("#")[1];
 		*if(DirClassExpObjProp.containsKey(KeyToSearch))
 		*	return DirClassExpObjProp.get(KeyToSearch);
 		*/
+		for(OWLOntology ont : owlModelManager.getActiveOntologies()) {
+                if(ont.getEdgeLabelMap(parent).containsKey(child.toStringID())) {
+                    return ont.getEdgeLabelMap(parent).get(child.toStringID());
+                }
+        }
         return " is-a ";
     }
 
     public int getRelationshipDirection(Object parentObject, Object childObject) {
-		/**OWLClass parent = (OWLClass)parentObject;
-		*OWLClass child  = (OWLClass)childObject;
-		*String KeyToSearch = parent.getIRI().toString().split("#")[1]+"#"+child.getIRI().toString().split("#")[1];
+		OWLClass parent = (OWLClass)parentObject;
+		OWLClass child  = (OWLClass)childObject;
+		/**String KeyToSearch = parent.getIRI().toString().split("#")[1]+"#"+child.getIRI().toString().split("#")[1];
 		*if(DirClassExpObjProp.containsKey(KeyToSearch))
 		*	return GraphModel.DIRECTION_FORWARD;
 		*/
+		for(OWLOntology ont : owlModelManager.getActiveOntologies()) {
+                if(ont.getEdgeLabelMap(parent).containsKey(child.toStringID())) {
+                    return GraphModel.DIRECTION_FORWARD;
+                }
+        }
         return GraphModel.DIRECTION_BACK;
     }
 

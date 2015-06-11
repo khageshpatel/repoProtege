@@ -67,6 +67,13 @@
     </scm>
 
     <dependencies>
+		
+		<dependency>
+			<groupId>net.sourceforge.owlapi</groupId>
+			<artifactId>owlapi-distribution</artifactId>
+			<version>3.5.1</version>
+		</dependency>
+		
         <dependency>
             <groupId>edu.stanford.protege</groupId>
             <artifactId>org.protege.editor.core.application</artifactId>
