@@ -43,6 +43,11 @@ import static uk.ac.manchester.cs.owl.owlapi.InitVisitorFactory.*;
 
 import java.io.Serializable;
 import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
@@ -429,6 +434,26 @@ public abstract class AbstractInternalsImpl implements Internals, Serializable {
 	public boolean doesContainRelation(String ns, String name){
 		System.out.println("--> Called abstract Impl object this should not happen");
 		return false;
+	}
+	
+	@Override
+	public void addRelated(OWLClass A, String ns, String name, OWLClass B){
+	}
+	
+	@Override
+	public void printRelated(){
+	}
+
+	@Override
+	public Set<OWLClass> getAllOwlClasses(OWLClass A){
+		Set<OWLClass> related = new HashSet<OWLClass>();
+		return related;
+	}
+	
+	@Override
+	public Map<String,String> getEdgeLabelMap(OWLClass A){
+		Map<String,String> edgeMap = new HashMap<String,String>();
+		return edgeMap;
 	}
 	
 }

@@ -970,12 +970,12 @@ public class RDFParser extends DefaultHandler implements RDFConstants {
             } else {
                 String objectIRI = getNodeIDResourceResourceIRI(atts);
                 if (objectIRI != null) {
-					System.out.println("--> Pushed empty property element");
-					System.out.println(objectIRI);
+					//System.out.println("--> Pushed empty property element");
+					//System.out.println(objectIRI);
                     pushState(new EmptyPropertyElement(m_nodeElement));
                 } else {
-					System.out.println("--> Pushed ResourceOrLiteralPropertyElement");
-					System.out.println("--> " + namespaceIRI + "#" + localName);
+					//System.out.println("--> Pushed ResourceOrLiteralPropertyElement");
+					//System.out.println("--> " + namespaceIRI + "#" + localName);
                     pushState(new ResourceOrLiteralPropertyElement(
                             m_nodeElement));
                 }

@@ -164,6 +164,7 @@ public class InternalsImpl extends AbstractInternalsImpl {
     protected final MapPointer<OWLAnnotationProperty, OWLAxiom> owlAnnotationPropertyReferences = build();
     protected final MapPointer<OWLEntity, OWLDeclarationAxiom> declarationsByEntity = build();
 	protected Map<String, OWLRelation> relationMap = new HashMap<String, OWLRelation>();
+	protected Map<String, OWLRelationInstanceContainer> relationInstanceMap = new HashMap<String, OWLRelationInstanceContainer>();
 	
     @Override
     public <K, V extends OWLAxiom> Set<K> getKeyset(Pointer<K, V> pointer) {
@@ -1049,6 +1050,8 @@ public class InternalsImpl extends AbstractInternalsImpl {
 
 	@Override
 	public void addRelation(String ns, String name){
+		//System.out.println("--> addRelated");
+		//System.out.println("--> " + name);
 		relationMap.put(name,new OWLRelation(ns, name));
 	}
 	
@@ -1063,4 +1066,40 @@ public class InternalsImpl extends AbstractInternalsImpl {
 			else
 				return false;
 	}
+	
+	@Override
+	public void addRelated(OWLClass A, String ns, String name, OWLClass B){
+		if(relationInstanceMap.get(A.toStringID()) == null)
+			relationInstanceMap.put(A.toStringID(), new OWLRelationInstanceContainer());
+		//System.out.println("--> addRelated");
+		//System.out.println("--> " + name);
+		//System.out.println(relationMap.get(name));
+		//Error checking required
+		relationInstanceMap.get(A.toStringID()).push(new OWLRelationInstance(relationMap.get(name),B));
+	}
+	
+	@Override
+	public void printRelated(){
+		for(Map.Entry<String, OWLRelationInstanceContainer> entry: relationInstanceMap.entrySet()){
+			System.out.println("Class object: " + entry.getKey());
+			entry.getValue().printRelationInstances();
+		}
+	}
+	
+	@Override
+	public Set<OWLClass> getAllOwlClasses(OWLClass A){
+		if(relationInstanceMap.get(A.toStringID()) != null)
+			return relationInstanceMap.get(A.toStringID()).getAllOwlClasses();
+		Set<OWLClass> related = new HashSet<OWLClass>();
+		return related;
+	}
+	
+	@Override
+	public Map<String,String> getEdgeLabelMap(OWLClass A){
+		if(relationInstanceMap.get(A.toStringID()) != null)
+			return relationInstanceMap.get(A.toStringID()).getEdgeLabelMap();
+		Map<String,String> edgeMap = new HashMap<String,String>();
+		return edgeMap;
+	}
+	
 }
