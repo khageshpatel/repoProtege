@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+	<!ENTITY rel "http://www.pace.edu/rel-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#"
+     xml:base="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+	 xmlns:rel="http://www.pace.edu/rel-syntax-ns#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9"/>
+    
+
+	<rel:NewRelation rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#PartOf"/>
+	<rel:NewRelation rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#ContainedIn"/>
+	
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Has -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Has"/>
+    
+
+
+    <!-- http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#partOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#partOf">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Body -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Body">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Finger -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Finger">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#partOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Hand"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rel:PartOf rdf:resource="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Hand"/>
+		<rel:ContainedIn rdf:resource="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Hand"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Hand -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Hand">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#partOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Body"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Leg -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Leg">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#partOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Body"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Person">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Has"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Body"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Finger"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Body"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Finger"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Hand"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Leg"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Person"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
