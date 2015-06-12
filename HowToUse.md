@@ -65,4 +65,10 @@ Source Code Structure
 
 * `owlviz`
 
-	Source code structure visualization in protege.  
+	Source code structure visualization in protege.
+
+Following graph source dependency between different projects. If you change any project make sure you compile that project as well as all dependents of that project. So if you modify `owlapi1` recompile in this order `owlapi1` -> `protege-master` -> `owlviz`.
+
+![Dependency Graph](https://github.com/khageshpatel/repoProtege/blob/master/depGraph.PNG)
+
+  
