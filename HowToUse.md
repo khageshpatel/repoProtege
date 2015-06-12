@@ -1,14 +1,14 @@
-## Protege Develpoment ##
+## Protege Development ##
 
-This document is to help you setup development enviroment for protege and some basic knowledge about commonly used tools for maintaining project base.
+This document is to help you setup development environment for protege and some basic knowledge about commonly used tools for maintaining project base.
 
 Installing necessary tools
 --------------------------
 
-First lets install necessary tools required for develpoing code bases assosiated with protege.
+First lets install necessary tools required for developing code bases associated with protege.
 
 #### Installing jdk ####
-First install java jdk form [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html "Java JDK"). Important thing to note here is you must download JDK not JRE. Make sure you have `JAVA_HOME` variable setup in your computer if not set it up where you have installed your jdk generally in windows it is `C:\Program Files\Java\jdk1.8.0_45`. Also make sure you have java binaries in your system path if not add it. In my case it is `C:\Program Files\Java\jdk1.8.0_45\bin`. If you have problem in adding system path just search in google on addign system path and system variables instruction may vary depending on your platform. After all these steps you should be able to accesss java from command line.
+First install java jdk form [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html "Java JDK"). Important thing to note here is you must download JDK not JRE. Make sure you have `JAVA_HOME` variable setup in your computer if not set it up where you have installed your jdk generally in windows it is `C:\Program Files\Java\jdk1.8.0_45`. Also make sure you have java binaries in your system path if not add it. In my case it is `C:\Program Files\Java\jdk1.8.0_45\bin`. If you have problem in adding system path just search in google on adding system path and system variables instruction may vary depending on your platform. After all these steps you should be able to access java from command line.
 
 #### Installing Graphviz
 Visualization tools in protege use Graphviz for creating graphs therefore you need to install graphviz. You can get latest copy of graphviz from [here](http://www.graphviz.org/Download..php "GraphViz").
@@ -30,7 +30,7 @@ There are two ways to work with maven projects.
  
 2. Maven Plugin for eclipse
 
-	You can bypass maven by using m2eclipse plugin for eclipse. Although according to me using this plugin limits your control over project develpoment. Instructions for installing mvn and using it can be found [here](http://theopentutorials.com/tutorials/eclipse/installing-m2eclipse-maven-plugin-for-eclipse/ "m2eclipse plugin").
+	You can bypass maven by using m2eclipse plugin for eclipse. Although according to me using this plugin limits your control over project development. Instructions for installing mvn and using it can be found [here](http://theopentutorials.com/tutorials/eclipse/installing-m2eclipse-maven-plugin-for-eclipse/ "m2eclipse plugin").
 
 Getting all required source code
 --------------------------------
@@ -73,7 +73,7 @@ Following graph source dependency between different projects. If you change any 
 
 Compiling and Building
 ----------------------
-To simply build a project go to root folder of that project for example `owlapi1` and run folloing command
+To simply build a project go to root folder of that project for example `owlapi1` and run following command
 
 `mvn -DskipTests clean install -Dmaven.javadoc.skip=true`
 
@@ -94,6 +94,6 @@ Different tags has different meaning:
 
 * `-Dmaven.javadoc.skip=true`
 
-	Skip buillding javadoc documentation. Also improves build time.
+	Skip building javadoc documentation. Also improves build time.
 
 If you want to build all projects just run `compile.sh` at root folder and run `protege-master\protege-distribution\target\protege-5.0.0-beta-18-SNAPSHOT-platform-independent\Protege-5.0.0-beta-18-SNAPSHOT\run.[sh,cmd]` by double clicking. 
