@@ -71,4 +71,29 @@ Following graph source dependency between different projects. If you change any 
 
 ![Dependency Graph](https://github.com/khageshpatel/repoProtege/blob/master/depGraph.PNG)
 
-  
+Compiling and Building
+----------------------
+To simply build a project go to root folder of that project for example `owlapi1` and run folloing command
+
+`mvn -DskipTests clean install -Dmaven.javadoc.skip=true`
+
+Different tags has different meaning:
+
+* `clean`
+
+	To clean project repository.
+
+* `install`
+
+
+	To create all binaries and jar files.
+
+* `-DskipTests`
+
+	To skip running test files. Including this option reduces build time.
+
+* `-Dmaven.javadoc.skip=true`
+
+	Skip buillding javadoc documentation. Also improves build time.
+
+If you want to build all projects just run `compile.sh` at root folder and run `protege-master\protege-distribution\target\protege-5.0.0-beta-18-SNAPSHOT-platform-independent\Protege-5.0.0-beta-18-SNAPSHOT\run.[sh,cmd]` by double clicking. 
