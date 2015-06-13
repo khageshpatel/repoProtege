@@ -265,6 +265,7 @@
         <defaultViewConfigFileName value="viewconfig-entitiestab.xml"/>
     </extension>
 
+	
     <!-- Classes Tab -->
 
     <extension id="OWLClassesTab"
@@ -639,6 +640,16 @@
         <class value="org.protege.editor.owl.ui.view.datatype.OWLDataTypeDescriptionViewComponent"/>
         <headerColor value="@org.protege.datatypecolor"/>
         <category value="@org.protege.datatypecategory"/>
+    </extension>
+
+	<!-- relation views -->
+	<extension id="OWLRelationList"
+               point="org.protege.editor.core.application.ViewComponent">
+        <label value="Relation"/>
+        <class value="org.protege.editor.owl.ui.view.relation.OWLRelationViewComponent"/>
+        <headerColor value="@org.protege.datatypecolor"/>
+        <category value="@org.protege.datatypecategory"/>
+        <navigates value="@org.protege.datatypecategory"/>
     </extension>
 
 

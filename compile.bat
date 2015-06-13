@@ -11,4 +11,3 @@ del protege-master\protege-distribution\target\protege-5.0.0-beta-18-SNAPSHOT-pl
 copy owlviz\target\org.coode.owlviz-4.1.6-SNAPSHOT.jar protege-master\protege-distribution\target\protege-5.0.0-beta-18-SNAPSHOT-platform-independent\Protege-5.0.0-beta-18-SNAPSHOT\plugins\org.coode.owlviz-4.1.6-SNAPSHOT.jar
 cd protege-master\protege-distribution\target\protege-5.0.0-beta-18-SNAPSHOT-platform-independent\Protege-5.0.0-beta-18-SNAPSHOT\
 call run.bat
-pause

@@ -26,6 +26,9 @@
                 <Component label="Datatypes">
                     <Property id="pluginId" value="org.protege.editor.owl.OWLDatatypeList"/>
                 </Component>
+				<Component label="Relations">
+                    <Property id="pluginId" value="org.protege.editor.owl.OWLRelationList"/>
+                </Component>
             </CNode>
         </HSNode>
         <CNode>
