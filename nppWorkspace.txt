@@ -1,0 +1,24 @@
+<NotepadPlus>
+    <Project name="owl editor ui">
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\view\relation\newRelationCreationPanel.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\view\relation\OWLRelationViewComponent.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\OWLEntityCreationPanel.java" />
+    </Project>
+    <Project name="relation api">
+        <File name="owlapi1\api\src\main\java\org\semanticweb\owlapi\model\OWLOntology.java" />
+        <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLOntologyImpl.java" />
+        <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\AbstractInternalsImpl.java" />
+        <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\Internals.java" />
+        <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\InternalsImpl.java" />
+        <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelation.java" />
+        <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstance.java" />
+        <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstanceContainer.java" />
+    </Project>
+    <Project name="parser">
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdfxml\parser\OWLRDFConsumer.java" />
+        <File name="owlapi1\parsers\src\main\java\org\semanticweb\owlapi\rdf\util\RDFConstants.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdfxml\parser\RDFXMLParser.java" />
+        <File name="owlapi1\parsers\src\main\java\org\semanticweb\owlapi\rdf\syntax\RDFParser.java" />
+    </Project>
+    <Project name="owlviz" />
+</NotepadPlus>
