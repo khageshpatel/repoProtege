@@ -1,11 +1,11 @@
-package org.protege.editor.owl.ui.list;
+package org.protege.editor.owl.ui.view.relation;
 
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.ui.renderer.OWLCellRendererSimple;
 import org.protege.editor.owl.ui.transfer.OWLObjectListDragGestureListener;
 import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLObject;
-//import uk.ac.manchester.cs.owl.owlapi.OWLRelation;
+import org.semanticweb.owlapi.model.OWLRelation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,7 +26,7 @@ import java.util.Set;
  * matthew.horridge@cs.man.ac.uk<br>
  * www.cs.man.ac.uk/~horridgm<br><br>
  */
-public class OWLRelationList extends JList<OWLObject> {
+public class OWLRelationList extends JList<OWLRelation> {
     private static final long serialVersionUID = -817749022854204056L;
 
 
@@ -43,15 +43,15 @@ public class OWLRelationList extends JList<OWLObject> {
         int index = locationToIndex(event.getPoint());
         if (index >= 0){
             Object element = getModel().getElementAt(index);
-            //if (element != null && element instanceof OWLRelation){
-            //    return ((OWLRelation)element).getName();
-            //}
+            if (element != null && element instanceof OWLRelation){
+                return ((OWLRelation)element).getName();
+            }
         }
         return null;
     }
 
 
-    public void setSelectedValues(Set<OWLObject> owlRelations, boolean shouldScroll) {
+    public void setSelectedValues(Set<OWLRelation> owlRelations, boolean shouldScroll) {
         getSelectionModel().clearSelection();
         if (getSelectionMode() == ListSelectionModel.MULTIPLE_INTERVAL_SELECTION){
             int firstIndex = -1;
@@ -71,10 +71,10 @@ public class OWLRelationList extends JList<OWLObject> {
 
 
     @SuppressWarnings("unchecked")
-    public java.util.List<OWLObject> getSelectedOWLObjects(){
-        List<OWLObject> sel = new ArrayList<OWLObject>();
+    public java.util.List<OWLRelation> getSelectedOWLObjects(){
+        List<OWLRelation> sel = new ArrayList<OWLRelation>();
         for (Object o : getSelectedValues()){
-            sel.add((OWLObject) o);
+            sel.add((OWLRelation) o);
         }
         return sel;
     }

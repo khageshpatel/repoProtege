@@ -48,6 +48,8 @@ import java.util.Set;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.semanticweb.owlapi.model.OWLRelation;
+
 import org.semanticweb.owlapi.model.AddAxiom;
 import org.semanticweb.owlapi.model.AddImport;
 import org.semanticweb.owlapi.model.AddOntologyAnnotation;
@@ -1637,6 +1639,10 @@ public class OWLOntologyImpl extends OWLObjectImpl implements
 	
 	public Map<String,String> getEdgeLabelMap(OWLClass A){
 		return internals.getEdgeLabelMap(A);
+	}
+
+	public List<OWLRelation> getAllRelations(){
+		return internals.getAllRelations();
 	}
 	
 }

@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
+import org.semanticweb.owlapi.model.OWLRelation;
 import org.semanticweb.owlapi.model.OWLClass;
 
 public class OWLRelationInstanceContainer{

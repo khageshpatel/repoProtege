@@ -49,6 +49,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.semanticweb.owlapi.model.OWLRelation;
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLAnnotationSubject;
@@ -455,5 +456,12 @@ public abstract class AbstractInternalsImpl implements Internals, Serializable {
 		Map<String,String> edgeMap = new HashMap<String,String>();
 		return edgeMap;
 	}
+	
+	@Override
+	public List<OWLRelation> getAllRelations(){
+		List<OWLRelation>  list = new ArrayList<OWLRelation>();
+		return list;
+	}
+
 	
 }

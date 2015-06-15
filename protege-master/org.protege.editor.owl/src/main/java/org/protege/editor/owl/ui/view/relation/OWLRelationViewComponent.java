@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 import org.protege.editor.core.ui.view.DisposableAction;
 import org.protege.editor.owl.ui.view.OWLSelectionViewAction;
 import org.protege.editor.owl.ui.OWLIcons;
-
+import org.semanticweb.owlapi.model.OWLOntology;
 
 import java.awt.BorderLayout;
 import org.apache.log4j.Logger;
@@ -22,12 +22,12 @@ import org.protege.editor.owl.ui.view.AbstractOWLViewComponent;
 public class OWLRelationViewComponent extends AbstractOWLViewComponent {
     private static final long serialVersionUID = -4515710047558710080L;
     private static final Logger log = Logger.getLogger(OWLRelationViewComponent.class);
-	private OWLObjectList<OWLDatatype> list;
+	private OWLRelationList list;
 	
     @Override
     protected void initialiseOWLView() throws Exception {
         setLayout(new BorderLayout());
-		list = new OWLObjectList<OWLDatatype>(getOWLEditorKit());
+		list = new OWLRelationList(getOWLEditorKit());
 		//String[] selections = { "green", "red", "orange", "dark blue", "green", "red", "orange", "dark blue", "green", "red", "orange", "dark blue" };
 		//JList list = new JList(selections);
         //add(metricsComponent, BorderLayout.CENTER);
@@ -45,15 +45,15 @@ public class OWLRelationViewComponent extends AbstractOWLViewComponent {
 	
 	private void reload(){
         // Add all known datatypes including built in ones
-        final OWLOntologyManager mngr = getOWLModelManager().getOWLOntologyManager();
-        java.util.List<OWLDatatype> datatypeList = new ArrayList<OWLDatatype>(new OWLDataTypeUtils(mngr).getKnownDatatypes(getOWLModelManager().getActiveOntologies()));
-        Collections.sort(datatypeList, getOWLModelManager().getOWLObjectComparator());
+        final OWLOntology ont = getOWLModelManager().getActiveOntology();
+        java.util.List<OWLRelation> relationList = ont.getAllRelations();
+        //Collections.sort(datatypeList, getOWLModelManager().getOWLObjectComparator());
 
-        list.setListData(datatypeList.toArray(new OWLDatatype[datatypeList.size()]));
-        final OWLDatatype sel = getOWLWorkspace().getOWLSelectionModel().getLastSelectedDatatype();
-        if (datatypeList.contains(sel)){
-            list.setSelectedValue(sel, true);
-        }
+        list.setListData(relationList.toArray(new OWLRelation[relationList.size()]));
+        //final OWLDatatype sel = getOWLWorkspace().getOWLSelectionModel().getLastSelectedDatatype();
+        //if (datatypeList.contains(sel)){
+          //  list.setSelectedValue(sel, true);
+        //}
     }
 	
 	    private void setupActions() {

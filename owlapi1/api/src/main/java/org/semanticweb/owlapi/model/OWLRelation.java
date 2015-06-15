@@ -1,4 +1,4 @@
-package uk.ac.manchester.cs.owl.owlapi;
+package org.semanticweb.owlapi.model;
 
 import java.io.Serializable;
 import java.util.Collection;

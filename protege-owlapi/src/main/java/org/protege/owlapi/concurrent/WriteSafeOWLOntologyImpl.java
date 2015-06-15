@@ -1,12 +1,14 @@
 package org.protege.owlapi.concurrent;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.Map;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock.ReadLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
 
+import org.semanticweb.owlapi.model.OWLRelation;
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
@@ -1342,6 +1344,10 @@ public class WriteSafeOWLOntologyImpl implements OWLMutableOntology, WriteSafeOW
 	
 	public Map<String,String> getEdgeLabelMap(OWLClass A){
 		return delegate.getEdgeLabelMap(A);
+	}
+	
+	public List<OWLRelation> getAllRelations(){
+		return delegate.getAllRelations();
 	}
 	
 }

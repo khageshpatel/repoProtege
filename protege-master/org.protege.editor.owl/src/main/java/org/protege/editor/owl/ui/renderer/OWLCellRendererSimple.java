@@ -3,7 +3,7 @@ package org.protege.editor.owl.ui.renderer;
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.ui.OWLIcons;
 import org.semanticweb.owlapi.model.*;
-//import uk.ac.manchester.cs.owl.owlapi.OWLRelation;
+import org.semanticweb.owlapi.model.OWLRelation;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeCellRenderer;
@@ -73,10 +73,10 @@ public class OWLCellRendererSimple implements TreeCellRenderer, ListCellRenderer
             String rendering = owlEditorKit.getModelManager().getRendering(obj);
             renderer.setText(rendering);
         }
-		//else if(value instanceof OWLRelation){
-		//	OWLRelation obj = (OWLRelation) value;
-		//	renderer.setText(obj.getName());
-		//}
+		else if(value instanceof OWLRelation){
+			OWLRelation obj = (OWLRelation) value;
+			renderer.setText(obj.getName());
+		}
     }
 
     private void setIcon(Object value, JLabel renderer) {
@@ -85,9 +85,9 @@ public class OWLCellRendererSimple implements TreeCellRenderer, ListCellRenderer
             Icon icon = owlEditorKit.getWorkspace().getOWLIconProvider().getIcon(obj);
             renderer.setIcon(icon);
         }
-		//else if(value instanceof OWLRelation){
-		//	renderer.setIcon(OWLIcons.getIcon("datarange.add.png"));
-		//}
+		else if(value instanceof OWLRelation){
+			renderer.setIcon(OWLIcons.getIcon("datarange.add.png"));
+		}
     }
 
 

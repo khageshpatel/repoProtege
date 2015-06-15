@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.semanticweb.owlapi.model.OWLRelation;
 import org.semanticweb.owlapi.model.OWLClass;
 
 public class OWLRelationInstance{

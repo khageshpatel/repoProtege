@@ -45,6 +45,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
+import org.semanticweb.owlapi.model.OWLRelation;
+
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
@@ -527,5 +529,7 @@ public interface Internals {
 	Set<OWLClass> getAllOwlClasses(OWLClass A);
 	
 	Map<String,String> getEdgeLabelMap(OWLClass A);
+
+	List<OWLRelation> getAllRelations();
 	
 }

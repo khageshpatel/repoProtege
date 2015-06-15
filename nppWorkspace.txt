@@ -24,5 +24,7 @@
     <Project name="list">
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\list\OWLObjectList.java" />
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\list\OWLObjectListPanel.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\view\relation\OWLRelationList.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\renderer\OWLCellRendererSimple.java" />
     </Project>
 </NotepadPlus>
