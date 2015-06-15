@@ -39,6 +39,11 @@
 package uk.ac.manchester.cs.owl.owlapi;
 
 import java.util.Set;
+import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
 
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.OWLAnnotation;
@@ -505,4 +510,22 @@ public interface Internals {
      *        chain to remove
      */
     void removePropertyChainSubPropertyAxioms(OWLSubPropertyChainOfAxiom ax);
+	
+		/**
+	 * Add a relation 
+	 */
+	
+	void addRelation(String ns, String name);
+	
+	
+	boolean doesContainRelation(String ns, String name);
+
+	void addRelated(OWLClass A, String ns, String name, OWLClass B);
+	
+	void printRelated();
+
+	Set<OWLClass> getAllOwlClasses(OWLClass A);
+	
+	Map<String,String> getEdgeLabelMap(OWLClass A);
+	
 }

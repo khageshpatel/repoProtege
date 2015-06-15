@@ -45,6 +45,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.semanticweb.owlapi.model.AddAxiom;
 import org.semanticweb.owlapi.model.AddImport;
@@ -1598,4 +1600,45 @@ public class OWLOntologyImpl extends OWLObjectImpl implements
             ref = OWLOntologyImpl.this.containsReference(property);
         }
     }
+	
+	public void addRelation(String name){
+		if(name.split("#").length >= 2){
+			internals.addRelation(name.split("#")[0],name.split("#")[1]);
+		}
+		else{
+			internals.addRelation("",name);
+		}
+	}
+	
+	public boolean doesContainRelation(String name){
+		if(name.split("#").length >= 2){
+			return internals.doesContainRelation(name.split("#")[0],name.split("#")[1]);
+		}
+		else{
+			return internals.doesContainRelation("",name);
+		}
+	}
+	
+	public void addRelated(OWLClass A, String rel, OWLClass B){
+		if(rel.split("#").length >= 2){
+			internals.addRelated(A,rel.split("#")[0],rel.split("#")[1],B);
+		}
+		else{
+			internals.addRelated(A,"",rel,B);
+		}
+	}
+	
+	public void printAllRelations(){
+		internals.printRelated();
+	}
+	
+	public Set<OWLClass> getAllOwlClasses(OWLClass A){
+		return internals.getAllOwlClasses(A);
+	}
+	
+	public Map<String,String> getEdgeLabelMap(OWLClass A){
+		return internals.getEdgeLabelMap(A);
+	}
+
+	
 }

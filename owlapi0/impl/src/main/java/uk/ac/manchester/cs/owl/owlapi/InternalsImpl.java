@@ -45,6 +45,8 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Map;
+import java.util.HashMap;
 
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.OWLAnnotation;
@@ -161,6 +163,8 @@ public class InternalsImpl extends AbstractInternalsImpl {
     protected final MapPointer<OWLDatatype, OWLAxiom> owlDatatypeReferences = build();
     protected final MapPointer<OWLAnnotationProperty, OWLAxiom> owlAnnotationPropertyReferences = build();
     protected final MapPointer<OWLEntity, OWLDeclarationAxiom> declarationsByEntity = build();
+	protected Map<String, OWLRelation> relationMap = new HashMap<String, OWLRelation>();
+	protected Map<String, OWLRelationInstanceContainer> relationInstanceMap = new HashMap<String, OWLRelationInstanceContainer>();
 
     @Override
     public <K, V extends OWLAxiom> Set<K> getKeyset(Pointer<K, V> pointer) {
@@ -1043,4 +1047,60 @@ public class InternalsImpl extends AbstractInternalsImpl {
             // later stage.
         }
     }
+	
+		@Override
+	public void addRelation(String ns, String name){
+		//System.out.println("--> addRelated");
+		//System.out.println("--> " + name);
+		relationMap.put(name,new OWLRelation(ns, name));
+	}
+	
+	@Override
+	public boolean doesContainRelation(String ns, String name){
+		if(relationMap.get(name) == null){
+			return false;
+		}
+		else
+			if(relationMap.get(name).getNS().equals(ns))
+				return true;
+			else
+				return false;
+	}
+	
+	@Override
+	public void addRelated(OWLClass A, String ns, String name, OWLClass B){
+		if(relationInstanceMap.get(A.toStringID()) == null)
+			relationInstanceMap.put(A.toStringID(), new OWLRelationInstanceContainer());
+		//System.out.println("--> addRelated");
+		//System.out.println("--> " + name);
+		//System.out.println(relationMap.get(name));
+		//Error checking required
+		relationInstanceMap.get(A.toStringID()).push(new OWLRelationInstance(relationMap.get(name),B));
+	}
+	
+	@Override
+	public void printRelated(){
+		for(Map.Entry<String, OWLRelationInstanceContainer> entry: relationInstanceMap.entrySet()){
+			System.out.println("Class object: " + entry.getKey());
+			entry.getValue().printRelationInstances();
+		}
+	}
+	
+	@Override
+	public Set<OWLClass> getAllOwlClasses(OWLClass A){
+		if(relationInstanceMap.get(A.toStringID()) != null)
+			return relationInstanceMap.get(A.toStringID()).getAllOwlClasses();
+		Set<OWLClass> related = new HashSet<OWLClass>();
+		return related;
+	}
+	
+	@Override
+	public Map<String,String> getEdgeLabelMap(OWLClass A){
+		if(relationInstanceMap.get(A.toStringID()) != null)
+			return relationInstanceMap.get(A.toStringID()).getEdgeLabelMap();
+		Map<String,String> edgeMap = new HashMap<String,String>();
+		return edgeMap;
+	}
+	
+
 }

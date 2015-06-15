@@ -1,0 +1,1 @@
+Clear protege-owlapi and remove dependency of editor owl.

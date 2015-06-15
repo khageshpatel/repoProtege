@@ -99,7 +99,7 @@ public class DLMetricsViewComponent extends AbstractOWLViewComponent {
             DLExpressivityChecker checker = new DLExpressivityChecker(getOWLModelManager().getActiveOntologies());
             namePanel.setConstructs(checker.getConstructs());
         }
-        catch (OWLException e) {
+        catch (Exception e) {
             logger.error(e);
         }
     }

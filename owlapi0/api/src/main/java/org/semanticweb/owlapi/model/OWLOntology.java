@@ -39,6 +39,8 @@
 package org.semanticweb.owlapi.model;
 
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Represents an OWL 2 <a
@@ -2014,6 +2016,22 @@ public interface OWLOntology extends OWLObject, HasAxioms, HasLogicalAxioms,
      */
     Set<OWLDatatypeDefinitionAxiom>
             getDatatypeDefinitions(OWLDatatype datatype);
+			
+	/**
+	 * Newly modified
+	 */
+	void addRelation(String name);
+	
+	boolean doesContainRelation(String name);
+	
+	void addRelated(OWLClass A, String rel, OWLClass B);
+	
+	void printAllRelations();
+	
+	Set<OWLClass> getAllOwlClasses(OWLClass A);
+	
+	Map<String,String> getEdgeLabelMap(OWLClass A);
+			
     // XXX when the interface changes, uncomment this
     // /** @param entity
     // * entyty to check

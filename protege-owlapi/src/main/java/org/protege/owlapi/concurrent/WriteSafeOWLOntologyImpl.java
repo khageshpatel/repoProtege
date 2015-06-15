@@ -2,6 +2,7 @@ package org.protege.owlapi.concurrent;
 
 import java.util.List;
 import java.util.Set;
+import java.util.Map;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock.ReadLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
@@ -1317,5 +1318,30 @@ public class WriteSafeOWLOntologyImpl implements OWLMutableOntology, WriteSafeOW
             readLock.unlock();
         }
     } 
-    
+	
+	public void addRelation(String name){
+		delegate.addRelation(name);
+	}
+	
+	public boolean doesContainRelation(String name){
+		return delegate.doesContainRelation(name);
+	}
+	
+	public void addRelated(OWLClass A, String rel, OWLClass B){
+		delegate.addRelated(A,rel,B);
+	}
+	
+	public void printAllRelations(){
+		delegate.printAllRelations();
+	}
+	
+	public Set<OWLClass> getAllOwlClasses(OWLClass A){
+		return delegate.getAllOwlClasses(A);
+	}
+
+	
+	public Map<String,String> getEdgeLabelMap(OWLClass A){
+		return delegate.getEdgeLabelMap(A);
+	}
+	
 }

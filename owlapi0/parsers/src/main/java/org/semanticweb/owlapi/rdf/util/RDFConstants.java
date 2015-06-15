@@ -43,6 +43,7 @@ public interface RDFConstants {
 
     //@formatter:off
     /**XMLNS*/ String XMLNS = "http://www.w3.org/XML/1998/namespace";
+	/**REL*/ String REL = "http://www.pace.edu/rel-syntax-ns";
     /**XMLLANG*/ String XMLLANG = "xml:lang";
     /**RDFNS*/ String RDFNS = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
     /**ATTR_ID*/ String ATTR_ID = "ID";
