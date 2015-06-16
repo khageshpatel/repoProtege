@@ -46,6 +46,7 @@ import java.util.Map;
 import java.util.List;
 
 import org.semanticweb.owlapi.model.OWLRelation;
+import org.semanticweb.owlapi.model.OWLRelationChangeListener;
 
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.OWLAnnotation;
@@ -519,6 +520,7 @@ public interface Internals {
 	
 	void addRelation(String ns, String name);
 	
+	void removeRelation(String ns, String name);
 	
 	boolean doesContainRelation(String ns, String name);
 
@@ -531,5 +533,10 @@ public interface Internals {
 	Map<String,String> getEdgeLabelMap(OWLClass A);
 
 	List<OWLRelation> getAllRelations();
+	
+	void addRelationChangeListner(OWLRelationChangeListener l);
+	
+	void removeRelationChangeListner(OWLRelationChangeListener l);
+
 	
 }

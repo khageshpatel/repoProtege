@@ -8,7 +8,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock.ReadLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
 
+import org.semanticweb.owlapi.model.OWLRelationChangeListener;
 import org.semanticweb.owlapi.model.OWLRelation;
+
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
@@ -1325,6 +1327,10 @@ public class WriteSafeOWLOntologyImpl implements OWLMutableOntology, WriteSafeOW
 		delegate.addRelation(name);
 	}
 	
+	public void removeRelation(String name){
+		delegate.removeRelation(name);
+	}
+	
 	public boolean doesContainRelation(String name){
 		return delegate.doesContainRelation(name);
 	}
@@ -1348,6 +1354,14 @@ public class WriteSafeOWLOntologyImpl implements OWLMutableOntology, WriteSafeOW
 	
 	public List<OWLRelation> getAllRelations(){
 		return delegate.getAllRelations();
+	}
+	
+	public void addRelationChangeListner(OWLRelationChangeListener l){
+		delegate.addRelationChangeListner(l);
+	}
+	
+	public void removeRelationChangeListner(OWLRelationChangeListener l){
+		delegate.removeRelationChangeListner(l);
 	}
 	
 }

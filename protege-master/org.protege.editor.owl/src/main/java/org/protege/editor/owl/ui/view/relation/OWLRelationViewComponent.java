@@ -15,6 +15,8 @@ import org.protege.editor.owl.ui.view.OWLSelectionViewAction;
 import org.protege.editor.owl.ui.OWLIcons;
 import org.semanticweb.owlapi.model.OWLOntology;
 
+import org.semanticweb.owlapi.model.OWLRelationChangeListener;
+
 import java.awt.BorderLayout;
 import org.apache.log4j.Logger;
 import org.protege.editor.owl.ui.view.AbstractOWLViewComponent;
@@ -23,20 +25,26 @@ public class OWLRelationViewComponent extends AbstractOWLViewComponent {
     private static final long serialVersionUID = -4515710047558710080L;
     private static final Logger log = Logger.getLogger(OWLRelationViewComponent.class);
 	private OWLRelationList list;
+	private OWLOntology actOnt;
+	
+	private OWLRelationChangeListener relListner = new OWLRelationChangeListener(){
+		public void relationChanged(String changeType, OWLRelation rel){
+			//Maybe inefficient
+			reload();
+		}
+	};
+	
+	
 	
     @Override
     protected void initialiseOWLView() throws Exception {
         setLayout(new BorderLayout());
 		list = new OWLRelationList(getOWLEditorKit());
-		//String[] selections = { "green", "red", "orange", "dark blue", "green", "red", "orange", "dark blue", "green", "red", "orange", "dark blue" };
-		//JList list = new JList(selections);
-        //add(metricsComponent, BorderLayout.CENTER);
-		//add(ComponentFactory.createScrollPane(new OWLAxiomList(getOWLEditorKit())));
-		//add(ComponentFactory.createScrollPane(new OWLObjectList<OWLDatatype>(getOWLEditorKit())));
+		actOnt = getOWLEditorKit().getOWLModelManager().getActiveOntology();
+		actOnt.addRelationChangeListner(relListner);
 		reload();
 		setupActions();
 		add(ComponentFactory.createScrollPane(list));
-        log.info("Example View Component initialized");
     }
 
 	@Override
@@ -44,9 +52,8 @@ public class OWLRelationViewComponent extends AbstractOWLViewComponent {
 	}
 	
 	private void reload(){
-        // Add all known datatypes including built in ones
-        final OWLOntology ont = getOWLModelManager().getActiveOntology();
-        java.util.List<OWLRelation> relationList = ont.getAllRelations();
+        actOnt = getOWLModelManager().getActiveOntology();
+        java.util.List<OWLRelation> relationList = actOnt.getAllRelations();
         //Collections.sort(datatypeList, getOWLModelManager().getOWLObjectComparator());
 
         list.setListData(relationList.toArray(new OWLRelation[relationList.size()]));
@@ -57,7 +64,7 @@ public class OWLRelationViewComponent extends AbstractOWLViewComponent {
     }
 	
 	    private void setupActions() {
-        final DisposableAction addDatatypeAction = new DisposableAction("Add datatype", OWLIcons.getIcon("datarange.add.png")) {
+        final DisposableAction addDatatypeAction = new DisposableAction("Add relation", OWLIcons.getIcon("datarange.add.png")) {
             /**
              * 
              */
@@ -72,7 +79,7 @@ public class OWLRelationViewComponent extends AbstractOWLViewComponent {
             }
         };
 
-        final OWLSelectionViewAction deleteDatatypeAction = new OWLSelectionViewAction("Delete datatype", OWLIcons.getIcon("datarange.remove.png")) {
+        final OWLSelectionViewAction deleteDatatypeAction = new OWLSelectionViewAction("Delete relation", OWLIcons.getIcon("datarange.remove.png")) {
 
             /**
              * 
@@ -102,9 +109,11 @@ public class OWLRelationViewComponent extends AbstractOWLViewComponent {
 
 	public void createNewRelation(){
 		System.out.println("Create relation called");
+		newRelationCreationPanel.showDialog(getOWLEditorKit(), "Please enter a datatype name");
 	}
 	
 	public void deleteRelation(){
-		System.out.println("Delete relation called");
+		for(OWLRelation rel : list.getSelectedOWLObjects())
+			actOnt.removeRelation(rel.toString());
 	}
 }

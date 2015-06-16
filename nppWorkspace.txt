@@ -2,7 +2,7 @@
     <Project name="owl editor ui">
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\view\relation\OWLRelationViewComponent.java" />
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\OWLEntityCreationPanel.java" />
-        <File name="C:\Users\khagesh\Desktop\npp workspace\newRelationCreationPanel.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\view\relation\newRelationCreationPanel.java" />
     </Project>
     <Project name="relation api">
         <File name="owlapi1\api\src\main\java\org\semanticweb\owlapi\model\OWLOntology.java" />
@@ -10,9 +10,9 @@
         <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\AbstractInternalsImpl.java" />
         <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\Internals.java" />
         <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\InternalsImpl.java" />
-        <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelation.java" />
         <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstance.java" />
         <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstanceContainer.java" />
+        <File name="owlapi1\api\src\main\java\org\semanticweb\owlapi\model\OWLRelation.java" />
     </Project>
     <Project name="parser">
         <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdfxml\parser\OWLRDFConsumer.java" />
@@ -26,5 +26,26 @@
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\list\OWLObjectListPanel.java" />
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\view\relation\OWLRelationList.java" />
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\renderer\OWLCellRendererSimple.java" />
+    </Project>
+    <Project name="Edit OWLAPI combined">
+        <Folder name="owlapi0">
+            <File name="owlapi0\api\src\main\java\org\semanticweb\owlapi\model\OWLOntology.java" />
+            <File name="owlapi0\api\src\main\java\org\semanticweb\owlapi\model\OWLRelation.java" />
+            <File name="owlapi0\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\AbstractInternalsImpl.java" />
+            <File name="owlapi0\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\Internals.java" />
+            <File name="owlapi0\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\InternalsImpl.java" />
+            <File name="owlapi0\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLOntologyImpl.java" />
+            <File name="owlapi0\api\src\main\java\org\semanticweb\owlapi\model\OWLRelationChangeListener.java" />
+        </Folder>
+        <Folder name="owlapi1">
+            <File name="owlapi1\api\src\main\java\org\semanticweb\owlapi\model\OWLOntology.java" />
+            <File name="owlapi1\api\src\main\java\org\semanticweb\owlapi\model\OWLRelation.java" />
+            <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\AbstractInternalsImpl.java" />
+            <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\Internals.java" />
+            <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\InternalsImpl.java" />
+            <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLOntologyImpl.java" />
+            <File name="owlapi1\api\src\main\java\org\semanticweb\owlapi\model\OWLRelationChangeListener.java" />
+        </Folder>
+        <File name="protege-owlapi\src\main\java\org\protege\owlapi\concurrent\WriteSafeOWLOntologyImpl.java" />
     </Project>
 </NotepadPlus>

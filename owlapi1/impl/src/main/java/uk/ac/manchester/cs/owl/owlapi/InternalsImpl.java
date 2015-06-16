@@ -51,6 +51,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import org.semanticweb.owlapi.model.OWLRelation;
+import org.semanticweb.owlapi.model.OWLRelationChangeListener;
 
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.OWLAnnotation;
@@ -169,7 +170,8 @@ public class InternalsImpl extends AbstractInternalsImpl {
     protected final MapPointer<OWLEntity, OWLDeclarationAxiom> declarationsByEntity = build();
 	protected Map<String, OWLRelation> relationMap = new HashMap<String, OWLRelation>();
 	protected Map<String, OWLRelationInstanceContainer> relationInstanceMap = new HashMap<String, OWLRelationInstanceContainer>();
-	
+	protected List<OWLRelationChangeListener> relationChangeListners = new ArrayList<OWLRelationChangeListener>();
+
     @Override
     public <K, V extends OWLAxiom> Set<K> getKeyset(Pointer<K, V> pointer) {
         final MapPointer<K, V> mapPointer = (MapPointer<K, V>) pointer;
@@ -1056,7 +1058,25 @@ public class InternalsImpl extends AbstractInternalsImpl {
 	public void addRelation(String ns, String name){
 		//System.out.println("--> addRelated");
 		//System.out.println("--> " + name);
-		relationMap.put(name,new OWLRelation(ns, name));
+		if(!doesContainRelation(ns,name)){
+			relationMap.put(name,new OWLRelation(ns, name));
+		
+			for (OWLRelationChangeListener l : relationChangeListners){
+				l.relationChanged("Add",relationMap.get(name));
+			}
+		}
+		
+	}
+	
+	@Override
+	public void removeRelation(String ns, String name){
+		if(doesContainRelation(ns,name)){
+			OWLRelation rel = relationMap.get(name);
+			relationMap.remove(name);
+			for (OWLRelationChangeListener l : relationChangeListners){
+					l.relationChanged("Remove",rel);
+			}
+		}
 	}
 	
 	@Override
@@ -1114,5 +1134,16 @@ public class InternalsImpl extends AbstractInternalsImpl {
 		}
 		return list;
 	}
+	
+	@Override
+	public void addRelationChangeListner(OWLRelationChangeListener l){
+		relationChangeListners.add(l);
+	}
+	
+	@Override
+	public void removeRelationChangeListner(OWLRelationChangeListener l){
+		relationChangeListners.remove(l);
+	}
+
 	
 }

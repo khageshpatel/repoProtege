@@ -49,6 +49,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.semanticweb.owlapi.model.OWLRelation;
+import org.semanticweb.owlapi.model.OWLRelationChangeListener;
 
 import org.semanticweb.owlapi.model.AddAxiom;
 import org.semanticweb.owlapi.model.AddImport;
@@ -1611,6 +1612,15 @@ public class OWLOntologyImpl extends OWLObjectImpl implements
 		}
 	}
 	
+	public void removeRelation(String name){
+		if(name.split("#").length >= 2){
+			internals.removeRelation(name.split("#")[0],name.split("#")[1]);
+		}
+		else{
+			internals.removeRelation("",name);
+		}
+	}
+	
 	public boolean doesContainRelation(String name){
 		if(name.split("#").length >= 2){
 			return internals.doesContainRelation(name.split("#")[0],name.split("#")[1]);
@@ -1645,4 +1655,11 @@ public class OWLOntologyImpl extends OWLObjectImpl implements
 		return internals.getAllRelations();
 	}
 	
+	public void addRelationChangeListner(OWLRelationChangeListener l){
+		internals.addRelationChangeListner(l);
+	}
+	
+	public void removeRelationChangeListner(OWLRelationChangeListener l){
+		internals.removeRelationChangeListner(l);
+	}
 }

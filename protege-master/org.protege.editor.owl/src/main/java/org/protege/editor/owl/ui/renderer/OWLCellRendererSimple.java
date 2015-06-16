@@ -86,7 +86,7 @@ public class OWLCellRendererSimple implements TreeCellRenderer, ListCellRenderer
             renderer.setIcon(icon);
         }
 		else if(value instanceof OWLRelation){
-			renderer.setIcon(OWLIcons.getIcon("datarange.add.png"));
+			renderer.setIcon(OWLIcons.getIcon("datarange.png"));
 		}
     }
 

@@ -2023,6 +2023,8 @@ public interface OWLOntology extends OWLObject, HasAxioms, HasLogicalAxioms,
 	 */
 	void addRelation(String name);
 	
+	void removeRelation(String name);
+	
 	boolean doesContainRelation(String name);
 	
 	void addRelated(OWLClass A, String rel, OWLClass B);
@@ -2034,6 +2036,10 @@ public interface OWLOntology extends OWLObject, HasAxioms, HasLogicalAxioms,
 	Map<String,String> getEdgeLabelMap(OWLClass A);
 	
 	List<OWLRelation> getAllRelations();
+	
+	void addRelationChangeListner(OWLRelationChangeListener l);
+	
+	void removeRelationChangeListner(OWLRelationChangeListener l);
 	
     // XXX when the interface changes, uncomment this
     // /** @param entity

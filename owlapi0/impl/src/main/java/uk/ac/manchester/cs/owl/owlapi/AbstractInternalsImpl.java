@@ -50,6 +50,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.semanticweb.owlapi.model.OWLRelation;
+import org.semanticweb.owlapi.model.OWLRelationChangeListener;
+
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLAnnotationSubject;
@@ -432,6 +434,10 @@ public abstract class AbstractInternalsImpl implements Internals, Serializable {
 	}
 	
 	@Override
+	public void removeRelation(String ns, String name){
+	}
+	
+	@Override
 	public boolean doesContainRelation(String ns, String name){
 		System.out.println("--> Called abstract Impl object this should not happen");
 		return false;
@@ -462,6 +468,13 @@ public abstract class AbstractInternalsImpl implements Internals, Serializable {
 		List<OWLRelation>  list = new ArrayList<OWLRelation>();
 		return list;
 	}
-
 	
+	@Override
+	public void addRelationChangeListner(OWLRelationChangeListener l){
+	}
+	
+	@Override
+	public void removeRelationChangeListner(OWLRelationChangeListener l){
+	}
+
 }
