@@ -75,6 +75,7 @@ public class RDFXMLOntologyStorer extends AbstractOWLOntologyStorer {
     protected void storeOntology(OWLOntology ontology, Writer writer,
             OWLOntologyFormat format) throws OWLOntologyStorageException {
         try {
+			System.out.println("--> RDF strone ontology called");
             RDFXMLRenderer renderer = new RDFXMLRenderer(ontology, writer,
                     format);
             Set<OWLEntity> entities = renderer.getUnserialisableEntities();

@@ -4,6 +4,8 @@
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\OWLEntityCreationPanel.java" />
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\view\relation\newRelationCreationPanel.java" />
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\view\relation\OWLRelatedViewComponent.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\view\relation\newRelatedCreationPanel.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\view\relation\OWLRelationList.java" />
     </Project>
     <Project name="relation api">
         <File name="owlapi1\api\src\main\java\org\semanticweb\owlapi\model\OWLOntology.java" />
@@ -39,6 +41,7 @@
             <File name="owlapi0\api\src\main\java\org\semanticweb\owlapi\model\OWLRelationChangeListener.java" />
             <File name="owlapi0\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstance.java" />
             <File name="owlapi0\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstanceContainer.java" />
+            <File name="owlapi0\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLOntologyManagerImpl.java" />
         </Folder>
         <Folder name="owlapi1">
             <File name="owlapi1\api\src\main\java\org\semanticweb\owlapi\model\OWLOntology.java" />
@@ -50,6 +53,7 @@
             <File name="owlapi1\api\src\main\java\org\semanticweb\owlapi\model\OWLRelationChangeListener.java" />
             <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstance.java" />
             <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstanceContainer.java" />
+            <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLOntologyManagerImpl.java" />
         </Folder>
         <File name="protege-owlapi\src\main\java\org\protege\owlapi\concurrent\WriteSafeOWLOntologyImpl.java" />
     </Project>
@@ -70,5 +74,8 @@
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\OWLFrameObject.java" />
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\OWLFrameSection.java" />
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\OWLFrameSectionRow.java" />
+    </Project>
+    <Project name="read and write">
+        <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLOntologyManagerImpl.java" />
     </Project>
 </NotepadPlus>

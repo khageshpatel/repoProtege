@@ -1002,9 +1002,12 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager,
             OWLOntologyFormat ontologyFormat, IRI documentIRI)
             throws OWLOntologyStorageException, UnknownOWLOntologyException {
         try {
+			System.out.println("--> Save using IRI Called");
             for (OWLOntologyStorer storer : ontologyStorers) {
                 if (storer.canStoreOntology(ontologyFormat)) {
                     storer.storeOntology(ontology, documentIRI, ontologyFormat);
+					System.out.println("--> Saved using");
+					System.out.println(OWLOntologyStorer.class);
                     return;
                 }
             }
@@ -1041,10 +1044,13 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager,
             OWLOntologyDocumentTarget documentTarget)
             throws OWLOntologyStorageException, UnknownOWLOntologyException {
         try {
+			System.out.println("--> Save using Target Called");
             for (OWLOntologyStorer storer : ontologyStorers) {
                 if (storer.canStoreOntology(ontologyFormat)) {
                     storer.storeOntology(ontology, documentTarget,
                             ontologyFormat);
+					System.out.println("--> Saved using");
+					System.out.println(OWLOntologyStorer.class);
                     return;
                 }
             }

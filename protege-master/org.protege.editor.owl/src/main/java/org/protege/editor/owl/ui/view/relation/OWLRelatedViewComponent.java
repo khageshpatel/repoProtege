@@ -1,5 +1,6 @@
 package org.protege.editor.owl.ui.view.relation;
 
+
 import org.protege.editor.owl.ui.list.OWLAxiomList;
 import org.protege.editor.owl.ui.list.OWLObjectList;
 import org.protege.editor.core.ui.util.ComponentFactory;
@@ -177,12 +178,18 @@ public class OWLRelatedViewComponent extends AbstractOWLViewComponent {
 
 	public void createNewRelation(){
 		System.out.println("Create relation called");
-		newRelationCreationPanel.showDialog(getOWLEditorKit(), "Please enter a datatype name");
+		OWLClass currCls = getOWLWorkspace().getOWLSelectionModel().getLastSelectedClass();
+		if(currCls == null || currCls.isOWLThing())
+			return;
+		newRelatedCreationPanel.showDialog(getOWLEditorKit(),"Create new relations",currCls);
+		reload();
 	}
 	
 	public void deleteRelation(){
 		actOnt = getOWLModelManager().getActiveOntology();
 		OWLClass A = getOWLWorkspace().getOWLSelectionModel().getLastSelectedClass();
+		if(A == null)
+			return;
 		for(OWLClass B : listRelated.getSelectedOWLObjects())
 			actOnt.removeRelated(A,listRelation.getSelectedValue().toString(),B);
 		reload();
