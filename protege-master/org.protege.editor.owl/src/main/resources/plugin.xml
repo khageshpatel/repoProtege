@@ -652,6 +652,14 @@
         <navigates value="@org.protege.datatypecategory"/>
     </extension>
 
+	<extension id="OWLRelatedList"
+               point="org.protege.editor.core.application.ViewComponent">
+        <label value="Related To"/>
+        <class value="org.protege.editor.owl.ui.view.relation.OWLRelatedViewComponent"/>
+        <headerColor value="@org.protege.classcolor"/>
+        <category value="@org.protege.classcategory"/>
+        <navigates value="@org.protege.classcategory"/>
+    </extension>
 
     <!-- misc views -->
 

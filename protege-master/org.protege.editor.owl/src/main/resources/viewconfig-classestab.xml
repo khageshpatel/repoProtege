@@ -22,6 +22,9 @@
                 <Component label="Description">
                     <Property id="pluginId" value="org.protege.editor.owl.OWLClassDescription"/>
                 </Component>
+				<Component label="Related To">
+                    <Property id="pluginId" value="org.protege.editor.owl.OWLRelatedList"/>
+                </Component>
             </CNode>
         </HSNode>
     </VSNode>

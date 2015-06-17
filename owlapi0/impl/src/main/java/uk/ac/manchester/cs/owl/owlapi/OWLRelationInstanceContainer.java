@@ -1,20 +1,16 @@
 package uk.ac.manchester.cs.owl.owlapi;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
+import java.util.*;
+
+import org.semanticweb.owlapi.model.OWLClass;
 
 import org.semanticweb.owlapi.model.OWLRelation;
-import org.semanticweb.owlapi.model.OWLClass;
+
 
 public class OWLRelationInstanceContainer{
 
-	List<OWLRelationInstance> relationInstances;
+	List<OWLRelationInstance> relationInstances = new ArrayList<OWLRelationInstance>();
 	Map<String,String> containedRelations = new HashMap<String, String>();
 	
 	public OWLRelationInstanceContainer(){
@@ -29,6 +25,35 @@ public class OWLRelationInstanceContainer{
 		}
 	}
 
+	public void remove(OWLRelationInstance el){
+		if(doesContain(el)){
+		//Iterator<OWLRelationInstance> it = relationInstances.listIterator();
+			containedRelations.remove(el.toString());
+			for (Iterator<OWLRelationInstance> iter = relationInstances.listIterator(); iter.hasNext(); ) {
+				OWLRelationInstance a = iter.next();
+				if (a.toString().equals(el.toString())) {
+					iter.remove();
+				}
+			}
+		}
+	}
+	
+	Map<OWLRelation, List<OWLClass>> getRelationToClassMap(){
+		Map<OWLRelation, List<OWLClass>> result = new HashMap<OWLRelation, List<OWLClass>>();
+		for(OWLRelationInstance e : relationInstances){
+			if(result.get(e.getRelation()) == null)
+				result.put(e.getRelation(), new ArrayList<OWLClass>());
+			List<OWLClass> m = result.get(e.getRelation());
+			m.add(e.getRelatedTo());
+			result.put(e.getRelation(), m);
+		}
+		return result;
+	}
+	
+	int getNoOfRelations(){
+		return relationInstances.size();
+	}
+	
 	public boolean doesContain(OWLRelationInstance el){
 		if(containedRelations.get(el.toString()) == null)
 			return false;

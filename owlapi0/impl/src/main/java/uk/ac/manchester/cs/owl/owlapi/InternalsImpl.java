@@ -1089,13 +1089,44 @@ public class InternalsImpl extends AbstractInternalsImpl {
 	}
 	
 	@Override
+	public boolean isRelated(OWLClass A, String iri, String name, OWLClass B){
+		if(relationInstanceMap.get(A.toStringID()) == null)
+			return false;
+		else if(relationMap.get(name) == null){
+			return false;
+		}
+		else{
+			OWLRelationInstanceContainer cont = relationInstanceMap.get(A.toStringID());
+			return cont.doesContain(new OWLRelationInstance(relationMap.get(name),B));
+		}
+	}
+
+	@Override
+	public void removeRelated(OWLClass A, String iri, String name, OWLClass B){
+		if(!isRelated(A, iri, name, B))
+			return;
+		else{
+			if(relationInstanceMap.get(A.toStringID()) == null)
+				return;
+			relationInstanceMap.get(A.toStringID()).remove(new OWLRelationInstance(relationMap.get(name),B));
+			if(relationInstanceMap.get(A.toStringID()).getNoOfRelations() == 0)
+				relationInstanceMap.remove(A.toStringID());
+		}
+	}
+
+	@Override
+	public Map<OWLRelation, List<OWLClass>> getRelationToClassMap(OWLClass A){
+		Map<OWLRelation, List<OWLClass>> result = new HashMap<OWLRelation, List<OWLClass>>();
+		if(relationInstanceMap.get(A.toStringID()) == null)
+			return result;
+		else
+			return relationInstanceMap.get(A.toStringID()).getRelationToClassMap();
+	}
+	
+	@Override
 	public void addRelated(OWLClass A, String ns, String name, OWLClass B){
 		if(relationInstanceMap.get(A.toStringID()) == null)
 			relationInstanceMap.put(A.toStringID(), new OWLRelationInstanceContainer());
-		//System.out.println("--> addRelated");
-		//System.out.println("--> " + name);
-		//System.out.println(relationMap.get(name));
-		//Error checking required
 		relationInstanceMap.get(A.toStringID()).push(new OWLRelationInstance(relationMap.get(name),B));
 	}
 	

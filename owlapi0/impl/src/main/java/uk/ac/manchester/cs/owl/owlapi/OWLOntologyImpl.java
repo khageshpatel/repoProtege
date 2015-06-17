@@ -1630,6 +1630,28 @@ public class OWLOntologyImpl extends OWLObjectImpl implements
 			return internals.doesContainRelation("",name);
 		}
 	}
+
+	public boolean isRelated(OWLClass A, String rel, OWLClass B){
+		if(rel.split("#").length >= 2){
+			return internals.isRelated(A,rel.split("#")[0],rel.split("#")[1],B);
+		}
+		else{
+			return internals.isRelated(A,"",rel,B);
+		}
+	}
+	
+	public void removeRelated(OWLClass A, String rel, OWLClass B){
+		if(rel.split("#").length >= 2){
+			internals.removeRelated(A,rel.split("#")[0],rel.split("#")[1],B);
+		}
+		else{
+			internals.removeRelated(A,"",rel,B);
+		}
+	}
+	
+	public Map<OWLRelation, List<OWLClass>> getRelationToClassMap(OWLClass A){
+		return internals.getRelationToClassMap(A);
+	}
 	
 	public void addRelated(OWLClass A, String rel, OWLClass B){
 		if(rel.split("#").length >= 2){
@@ -1657,9 +1679,12 @@ public class OWLOntologyImpl extends OWLObjectImpl implements
 	}
 	
 	public void addRelationChangeListner(OWLRelationChangeListener l){
+		internals.addRelationChangeListner(l);
 	}
 	
 	public void removeRelationChangeListner(OWLRelationChangeListener l){
+		internals.removeRelationChangeListner(l);
 	}
+
 	
 }

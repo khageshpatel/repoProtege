@@ -77,6 +77,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
 		<rel:PartOf rdf:resource="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Hand"/>
+		<rel:PartOf rdf:resource="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Leg"/>
 		<rel:ContainedIn rdf:resource="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#Hand"/>
     </owl:Class>
     

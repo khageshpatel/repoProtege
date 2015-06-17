@@ -2026,6 +2026,12 @@ public interface OWLOntology extends OWLObject, HasAxioms, HasLogicalAxioms,
 	void removeRelation(String name);
 	
 	boolean doesContainRelation(String name);
+
+	boolean isRelated(OWLClass A, String rel, OWLClass B);
+	
+	void removeRelated(OWLClass A, String rel, OWLClass B);
+	
+	Map<OWLRelation, List<OWLClass>> getRelationToClassMap(OWLClass A);
 	
 	void addRelated(OWLClass A, String rel, OWLClass B);
 	

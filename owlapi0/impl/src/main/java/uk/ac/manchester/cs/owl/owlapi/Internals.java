@@ -523,7 +523,13 @@ public interface Internals {
 	void removeRelation(String ns, String name);
 	
 	boolean doesContainRelation(String ns, String name);
-
+	
+	boolean isRelated(OWLClass A, String iri, String name, OWLClass B);
+	
+	void removeRelated(OWLClass A, String iri, String name, OWLClass B);
+	
+	Map<OWLRelation, List<OWLClass>> getRelationToClassMap(OWLClass A);
+	
 	void addRelated(OWLClass A, String ns, String name, OWLClass B);
 	
 	void printRelated();

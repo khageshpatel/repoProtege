@@ -1335,6 +1335,18 @@ public class WriteSafeOWLOntologyImpl implements OWLMutableOntology, WriteSafeOW
 		return delegate.doesContainRelation(name);
 	}
 	
+	public boolean isRelated(OWLClass A, String rel, OWLClass B){
+		return delegate.isRelated(A, rel, B);
+	}
+	
+	public void removeRelated(OWLClass A, String rel, OWLClass B){
+		delegate.removeRelated(A, rel, B);
+	}
+	
+	public Map<OWLRelation, List<OWLClass>> getRelationToClassMap(OWLClass A){
+		return delegate.getRelationToClassMap(A);
+	}
+	
 	public void addRelated(OWLClass A, String rel, OWLClass B){
 		delegate.addRelated(A,rel,B);
 	}

@@ -3,6 +3,7 @@
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\view\relation\OWLRelationViewComponent.java" />
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\OWLEntityCreationPanel.java" />
         <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\view\relation\newRelationCreationPanel.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\view\relation\OWLRelatedViewComponent.java" />
     </Project>
     <Project name="relation api">
         <File name="owlapi1\api\src\main\java\org\semanticweb\owlapi\model\OWLOntology.java" />
@@ -36,6 +37,8 @@
             <File name="owlapi0\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\InternalsImpl.java" />
             <File name="owlapi0\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLOntologyImpl.java" />
             <File name="owlapi0\api\src\main\java\org\semanticweb\owlapi\model\OWLRelationChangeListener.java" />
+            <File name="owlapi0\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstance.java" />
+            <File name="owlapi0\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstanceContainer.java" />
         </Folder>
         <Folder name="owlapi1">
             <File name="owlapi1\api\src\main\java\org\semanticweb\owlapi\model\OWLOntology.java" />
@@ -45,7 +48,27 @@
             <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\InternalsImpl.java" />
             <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLOntologyImpl.java" />
             <File name="owlapi1\api\src\main\java\org\semanticweb\owlapi\model\OWLRelationChangeListener.java" />
+            <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstance.java" />
+            <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstanceContainer.java" />
         </Folder>
         <File name="protege-owlapi\src\main\java\org\protege\owlapi\concurrent\WriteSafeOWLOntologyImpl.java" />
+    </Project>
+    <Project name="related">
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\view\cls\OWLClassDescriptionViewComponent.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\framelist\OWLFrameList.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\cls\OWLClassDescriptionFrame.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\cls\OWLSubClassAxiomFrameSection.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\cls\AbstractOWLClassAxiomFrameSection.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\AbstractOWLFrameSection.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\OWLFrameSection.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\editor\OWLObjectEditorHandler.java" />
+        <File name="protege-master\org.protege.editor.core.application\src\main\java\org\protege\editor\core\ui\list\MListSectionHeader.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\OWLFrameObject.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\OWLFrame.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\OWLFrameAction.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\OWLFrameListener.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\OWLFrameObject.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\OWLFrameSection.java" />
+        <File name="protege-master\org.protege.editor.owl\src\main\java\org\protege\editor\owl\ui\frame\OWLFrameSectionRow.java" />
     </Project>
 </NotepadPlus>

@@ -442,6 +442,21 @@ public abstract class AbstractInternalsImpl implements Internals, Serializable {
 		System.out.println("--> Called abstract Impl object this should not happen");
 		return false;
 	}
+
+	@Override
+	public boolean isRelated(OWLClass A, String iri, String name, OWLClass B){
+		return false;
+	}
+
+	@Override
+	public void removeRelated(OWLClass A, String iri, String name, OWLClass B){
+	}
+
+	@Override
+	public Map<OWLRelation, List<OWLClass>> getRelationToClassMap(OWLClass A){
+		Map<OWLRelation, List<OWLClass>> result = new HashMap<OWLRelation, List<OWLClass>>();
+		return result;
+	}
 	
 	@Override
 	public void addRelated(OWLClass A, String ns, String name, OWLClass B){
