@@ -72,6 +72,7 @@ import org.semanticweb.owlapi.model.OWLDisjointClassesAxiom;
 import org.semanticweb.owlapi.model.OWLDisjointDataPropertiesAxiom;
 import org.semanticweb.owlapi.model.OWLDisjointObjectPropertiesAxiom;
 import org.semanticweb.owlapi.model.OWLEntity;
+import org.semanticweb.owlapi.model.OWLRelation;
 import org.semanticweb.owlapi.model.OWLEntityVisitor;
 import org.semanticweb.owlapi.model.OWLHasKeyAxiom;
 import org.semanticweb.owlapi.model.OWLImportsDeclaration;
@@ -110,7 +111,9 @@ public abstract class RDFRendererBase {
     private RDFGraph graph;
     protected Set<IRI> prettyPrintedTypes;
     private OWLOntologyFormat format;
-
+	public boolean isClassRendering = false;
+	public OWLClass currClass;
+	
     /**
      * @param ontology
      *        ontology
@@ -301,6 +304,7 @@ public abstract class RDFRendererBase {
     private void renderInOntologySignatureEntities() throws IOException {
         renderAnnotationProperties();
         renderDatatypes();
+		renderRelations();
         renderObjectProperties();
         renderDataProperties();
         renderClasses();
@@ -321,7 +325,9 @@ public abstract class RDFRendererBase {
 
     private void renderClasses() throws IOException {
         Set<OWLClass> clses = ontology.getClassesInSignature();
+		isClassRendering = true;
         renderEntities(clses, CLASSES_BANNER_TEXT);
+		isClassRendering = false;
     }
 
     private void renderDataProperties() throws IOException {
@@ -341,6 +347,19 @@ public abstract class RDFRendererBase {
         renderEntities(datatypes, DATATYPES_BANNER_TEXT);
     }
 
+	private void renderRelations() throws IOException{
+		try{
+			List<OWLRelation> lisRelation = ontology.getAllRelations();
+			if(lisRelation.size() > 0)
+				writeBanner("Relations");
+			for( OWLRelation rel: lisRelation)
+				render(rel);
+		}
+		catch(Exception e){
+			throw new IOException();
+		}	
+	}
+	
     /**
      * Renders a set of entities.
      * 
@@ -372,6 +391,8 @@ public abstract class RDFRendererBase {
     private void renderEntity(OWLEntity entity) throws IOException {
         beginObject();
         writeEntityComment(entity);
+		if(isClassRendering)
+			currClass = (OWLClass) entity;
         render(new RDFResourceNode(entity.getIRI()));
         renderAnonRoots();
         endObject();
@@ -556,10 +577,13 @@ public abstract class RDFRendererBase {
 
     private void addImportsDeclarationsToOntologyHeader(
             RDFResourceNode ontologyHeaderNode) {
+		System.out.println("--> addImportsDeclarationsToOnlotogyHeader");
         for (OWLImportsDeclaration decl : ontology.getImportsDeclarations()) {
             graph.addTriple(new RDFTriple(ontologyHeaderNode,
                     new RDFResourceNode(OWL_IMPORTS.getIRI()),
                     new RDFResourceNode(decl.getIRI())));
+			System.out.println("--> element");
+			System.out.println(decl.getIRI());
         }
     }
 
@@ -732,6 +756,9 @@ public abstract class RDFRendererBase {
      *         If there was a problem rendering the triples.
      */
     public abstract void render(RDFResourceNode node) throws IOException;
+	
+	public void render(OWLRelation rel) throws IOException{
+	}
 
     protected boolean isObjectList(RDFResourceNode node) {
         for (RDFTriple triple : graph.getTriplesForSubject(node, false)) {

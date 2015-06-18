@@ -94,6 +94,7 @@ public class OWLOntologyXMLNamespaceManager extends XMLWriterNamespaceManager {
         ontologyFormat = format;
         addWellKnownNamespace("skos", Namespaces.SKOS.toString());
         addWellKnownNamespace("dc", DublinCoreVocabulary.NAME_SPACE);
+		setPrefix("rel","http://www.pace.edu/rel-syntax-ns#");
         processOntology();
     }
 

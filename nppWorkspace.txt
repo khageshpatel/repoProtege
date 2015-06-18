@@ -42,6 +42,15 @@
             <File name="owlapi0\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstance.java" />
             <File name="owlapi0\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstanceContainer.java" />
             <File name="owlapi0\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLOntologyManagerImpl.java" />
+            <Folder name="parser">
+                <File name="owlapi0\parsers\src\main\java\org\coode\owlapi\rdf\renderer\RDFRendererBase.java" />
+                <File name="owlapi0\parsers\src\main\java\org\coode\xml\OWLOntologyXMLNamespaceManager.java" />
+                <File name="owlapi0\parsers\src\main\java\org\coode\owlapi\rdf\rdfxml\RDFXMLWriter.java" />
+                <File name="owlapi0\parsers\src\main\java\org\coode\owlapi\rdf\rdfxml\RDFXMLRenderer.java" />
+                <File name="owlapi0\parsers\src\main\java\org\coode\xml\XMLWriterImpl.java" />
+                <File name="owlapi0\parsers\src\main\java\org\coode\xml\XMLWriterNamespaceManager.java" />
+                <File name="owlapi0\parsers\src\main\java\org\coode\xml\XMLWriter.java" />
+            </Folder>
         </Folder>
         <Folder name="owlapi1">
             <File name="owlapi1\api\src\main\java\org\semanticweb\owlapi\model\OWLOntology.java" />
@@ -54,6 +63,15 @@
             <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstance.java" />
             <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLRelationInstanceContainer.java" />
             <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLOntologyManagerImpl.java" />
+            <Folder name="parser">
+                <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\renderer\RDFRendererBase.java" />
+                <File name="owlapi1\parsers\src\main\java\org\coode\xml\OWLOntologyXMLNamespaceManager.java" />
+                <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\rdfxml\RDFXMLWriter.java" />
+                <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\rdfxml\RDFXMLRenderer.java" />
+                <File name="owlapi1\parsers\src\main\java\org\coode\xml\XMLWriter.java" />
+                <File name="owlapi1\parsers\src\main\java\org\coode\xml\XMLWriterImpl.java" />
+                <File name="owlapi1\parsers\src\main\java\org\coode\xml\XMLWriterNamespaceManager.java" />
+            </Folder>
         </Folder>
         <File name="protege-owlapi\src\main\java\org\protege\owlapi\concurrent\WriteSafeOWLOntologyImpl.java" />
     </Project>
@@ -77,5 +95,19 @@
     </Project>
     <Project name="read and write">
         <File name="owlapi1\impl\src\main\java\uk\ac\manchester\cs\owl\owlapi\OWLOntologyManagerImpl.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\renderer\RDFRendererBase.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\model\AbstractTranslator.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\model\RDFGraph.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\model\RDFLiteralNode.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\model\RDFNode.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\model\RDFResourceNode.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\model\RDFTranslator.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\model\RDFTriple.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\rdfxml\RDFXMLNamespaceManager.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\rdfxml\RDFXMLOntologyStorer.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\rdfxml\RDFXMLRenderer.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\rdfxml\RDFXMLWriter.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\xml\XMLWriterImpl.java" />
+        <File name="owlapi1\parsers\src\main\java\org\coode\owlapi\rdf\rdfxml\RDFXMLWriter.java" />
     </Project>
 </NotepadPlus>

@@ -46,7 +46,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.lang.StringBuilder;
 
 import org.coode.owlapi.rdf.model.RDFLiteralNode;
 import org.coode.owlapi.rdf.model.RDFNode;
@@ -69,6 +71,7 @@ import org.semanticweb.owlapi.model.OWLOntologyFormat;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.util.VersionInfo;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
+import org.semanticweb.owlapi.model.OWLRelation;
 
 /**
  * @author Matthew Horridge, The University Of Manchester, Bio-Health Informatics
@@ -80,7 +83,8 @@ public class RDFXMLRenderer extends RDFRendererBase {
     private Set<RDFResourceNode> pending = new HashSet<RDFResourceNode>();
     private RDFXMLNamespaceManager qnameManager;
     private OWLOntologyFormat format;
-
+	private Writer relWriter;
+	private OWLOntology ont;
     /**
      * @param manager
      *        manager
@@ -137,6 +141,8 @@ public class RDFXMLRenderer extends RDFRendererBase {
             OWLOntologyFormat format) {
         super(ontology, format);
         this.format = format;
+		this.relWriter = w;
+		this.ont = ontology;
         qnameManager = new RDFXMLNamespaceManager(ontology, format);
         String defaultNamespace = qnameManager.getDefaultNamespace();
         String base;
@@ -234,6 +240,31 @@ public class RDFXMLRenderer extends RDFRendererBase {
                 + "///////////////////////////////////////////////////////////////////////////////////////\n");
     }
 
+	@Override
+	public void render(OWLRelation rel) throws IOException{
+		StringBuilder RelString = new StringBuilder();
+		RelString.append("	");
+		RelString.append("<rel:NewRelation rdf:about=\"");
+		RelString.append(rel.toString());
+		RelString.append("\"/>\n");
+		relWriter.write(RelString.toString());
+	}
+	
+	public void render(OWLClass cls) throws IOException{
+		Map<OWLRelation, List<OWLClass>> maRelToCls =  ont.getRelationToClassMap(cls);
+		StringBuilder RelatedString = new StringBuilder();
+		for(OWLRelation rel : maRelToCls.keySet()){
+			for(OWLClass c : maRelToCls.get(rel)){
+				RelatedString.append("        <rel:");
+				RelatedString.append(rel.getName());
+				RelatedString.append(" rdf:resource=\"");
+				RelatedString.append(c.getIRI().toString());
+				RelatedString.append("\"/>\n");
+			}
+		}
+		relWriter.write(RelatedString.toString());
+	}
+	
     @Override
     public void render(RDFResourceNode node) throws IOException {
         if (pending.contains(node)) {
@@ -328,6 +359,8 @@ public class RDFXMLRenderer extends RDFRendererBase {
             }
             writer.writeEndElement();
         }
+		if(isClassRendering && pending.size() == 1)
+			render(currClass);
         writer.writeEndElement();
         pending.remove(node);
     }
