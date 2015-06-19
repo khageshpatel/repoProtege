@@ -477,7 +477,7 @@ public class XMLWriterImpl implements XMLWriter {
         public void writeElementEnd() throws IOException {
             if (name != null) {
                 if (!startWritten) {
-                    writeElementStart(true);
+					writeElementStart(true);
                 } else {
                     if (textContent == null) {
                         insertIndentation();
@@ -518,9 +518,14 @@ public class XMLWriterImpl implements XMLWriter {
             }
         }
 
+		
         private void writeTextContent() throws IOException {
             if (textContent != null) {
-                writer.write(XMLUtils.escapeXML(textContent));
+				String tmpText = textContent.replaceAll("\\s+", "");
+				if(tmpText.startsWith("<rel:"))
+					writer.write(textContent);
+				else
+					writer.write(XMLUtils.escapeXML(textContent));
             }
         }
 

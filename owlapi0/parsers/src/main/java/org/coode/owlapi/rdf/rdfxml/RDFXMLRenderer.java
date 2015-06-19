@@ -250,9 +250,10 @@ public class RDFXMLRenderer extends RDFRendererBase {
 		relWriter.write(RelString.toString());
 	}
 	
-	public void render(OWLClass cls) throws IOException{
+	public String render(OWLClass cls) {
 		Map<OWLRelation, List<OWLClass>> maRelToCls =  ont.getRelationToClassMap(cls);
 		StringBuilder RelatedString = new StringBuilder();
+		RelatedString.append("\n");
 		for(OWLRelation rel : maRelToCls.keySet()){
 			for(OWLClass c : maRelToCls.get(rel)){
 				RelatedString.append("        <rel:");
@@ -262,7 +263,7 @@ public class RDFXMLRenderer extends RDFRendererBase {
 				RelatedString.append("\"/>\n");
 			}
 		}
-		relWriter.write(RelatedString.toString());
+		return RelatedString.toString();
 	}
 	
     @Override
@@ -360,7 +361,7 @@ public class RDFXMLRenderer extends RDFRendererBase {
             writer.writeEndElement();
         }
 		if(isClassRendering && pending.size() == 1)
-			render(currClass);
+			writer.writeTextContent(render(currClass));
         writer.writeEndElement();
         pending.remove(node);
     }
