@@ -83,3 +83,9 @@ Here we will declare a restriction that that a crankcase can be part of at most 
 
 ### Benefits of our approach
 
++ You can declare restriction that a crankcase can be part of only one object in current owl because partOf is transitive property so if crankcase is part of engine and engine is partOf cars then crankcase is partOf two objects so saying that crankcase is partOf at most one object does not make any sense in current OWL but you can define restriction with much more depth with out approach.
++ Current OWL combined with SWRL don't support Negation and Disjunction whereas our approach does support them. 
++ We support negation as failure whereas current OWL don't support them.
++ We support non monotonic inferences it means we can change already existing relation so we can delete relations on the run.
++ As we have created separate entity called relation we avoid drawbacks, high computation requirement and high memory requirement from work arounds.
++ Support for ReflexiveRelation, IrreflexiveRelation and AsymmetricRelation.
