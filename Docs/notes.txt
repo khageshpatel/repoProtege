@@ -4,7 +4,7 @@ http://www.w3.org/wiki/PartWhole
 	and cannot express reflexivity, irreflexivity, nor anti-symmetry
 	componentOf and hasComponent are reasonable synonyms for partOf and hasPart respectively.
 	
-	Pit Fall
+	Pit fall
 	A common confusion is with the constitution relation,
 	which is a relation between things and the material or substance from which they are made.
 	For example, marble is not partOf a marble statue, the statue is constituted of marble.
@@ -28,7 +28,7 @@ http://www.w3.org/2004/02/skos/extensions/spec/2004-10-18.html
 	
 	relation to complement of class
 	
-	greater then or equal to partial ordering
+	greater than or equal to partial ordering
 	
 	still problem with child or married parents
 	
@@ -66,16 +66,16 @@ define allValuesFrom restriction for
 	
 	When considering restrictions on the partOf_directly property for different kinds of parts, the issue of using a universal (owl:allValuesFrom) vs. an existential restriction arises. Many different kinds of things have engines 
 	
-	you may need to create classes  ontology with classes of parts for each level in the part 
+	you may need to create classes ontology with classes of parts for each level in the part 
 	
 	The easy way to say this is that a "fault in a car" is really a "fault in a car or any of its parts" [SEP]. If we use the property hasLocus to locate the fault in a particular part of the car, then we can easily define axioms for the classes of FaultInCar and FaultInEngine:
 
     fault in part relation
 	
-	relexive
+	reflexive
 	
 	transitive should not be functional or inverse functional
-	allowed but does not make any sence
+	allowed but does not make any sense
 	
 	we can support custom restriction like in transitive case
 	
@@ -83,12 +83,12 @@ define allValuesFrom restriction for
 	
 	OWL does not have built-in primitives for antisymmetric or reflexive properties, nor is there any work-around for them. In most cases this causes no problems, but it does mean that if you create a cycle in the part-of hierarchy (usually by accident) it will go unnoticed by the classifier (although it may cause the classifier to run forever
 
-	urthermore, in mereology, since everything is a part of itself, we have to define "proper parts" as "parts not equal to the whole". Whereas in OWL we have to do the reverse: i.e. define "parts" (analogous to "proper parts") and then define "reflexive parts" in terms of "parts".
+	Furthermore, in mereology, since everything is a part of itself, we have to define "proper parts" as "parts not equal to the whole". Whereas in OWL we have to do the reverse: i.e. define "parts" (analogous to "proper parts") and then define "reflexive parts" in terms of "parts".
 	
 	Containment - the fact that I am contained in my room does not mean that I am part of my room
 Membership -as flocks of geese and committees. Membership is not transitive. For example, the goose's leg is part of the goose but not part of the flock of geese. Slightly more awkwardly, even though we often talk of members of a committee being "part of a committee", being a member of a subcommittee that is part of a committee may, or may not, confer membership in the committee as a whole. Admittedly, whether membership is a part-whole relation is subject to debate.
-Connections and branches -That the lamp is connected to the main electricity system does not make it part of that system. Similarly, the tributary is not part of the river, rather a brach of the river. If we want to talk about parts, we usually speak of the "river system".
-Constituents - more controversially, many ontologists distiguish between the relation between clay and a statue made of clay - the clay "constitutes" or "is a constituent of" the statue, rather than being part of the statue in the same sense that the arm or leg is part of the statue. At the very least, there are a set of different issues involved in this relationship that are beyond the scope of this document.
+Connections and branches -That the lamp is connected to the main electricity system does not make it part of that system. Similarly, the tributary is not part of the river, rather a branch of the river. If we want to talk about parts, we usually speak of the "river system".
+Constituents - more controversially, many ontologists distinguish between the relation between clay and a statue made of clay - the clay "constitutes" or "is a constituent of" the statue, rather than being part of the statue in the same sense that the arm or leg is part of the statue. At the very least, there are a set of different issues involved in this relationship that are beyond the scope of this document.
 subClassOf - As discussed in Pattern 3, being a part of something is not the same as being a subclass of it.
 
 In some contexts it is "more universal" to use partOf, in others to use hasPart. For example, all cars have wheels, but not all wheels are parts of cars. On the other hand, all leaves are parts of plants (at least at some time), but not all plants have leaves. The inability of existing classifiers to cope with ontologies mixing partOf and hasPart is a significant limitation.
