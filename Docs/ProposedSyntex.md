@@ -4,5 +4,12 @@
 
 ```xml
 <rel:NewRelation rdf:about="#PartOf"
-	
-</rel:NewRelation>```
+        <rel:type rdf:resource="&owl;AsymmetricRelation"/>
+        <rel:type rdf:resource="&owl;FunctionalRelation"/>
+        <rel:type rdf:resource="&owl;InverseFunctionalRelation"/>
+        <rel:type rdf:resource="&owl;IrreflexiveRelation"/>
+        <rel:type rdf:resource="&owl;ReflexiveRelation"/>
+        <rel:type rdf:resource="&owl;SymmetricRelation"/>
+        <rel:type rdf:resource="&owl;TransitiveRelation"/>
+</rel:NewRelation>
+```
