@@ -4,6 +4,7 @@ import org.protege.editor.core.ui.util.Resettable;
 import org.protege.editor.core.ui.view.ViewsPane;
 import org.protege.editor.core.ui.view.ViewsPaneMemento;
 import org.protege.editor.owl.model.selection.OWLSelectionModelListener;
+import org.protege.editor.owl.model.selection.OWLRelationSelectionListener;
 import org.semanticweb.owlapi.model.*;
 
 import javax.swing.*;
@@ -37,6 +38,8 @@ public class SelectedEntityCardView extends AbstractOWLViewComponent implements 
     private static final String CLASSES_PANEL = "Classes";
 
     private static final String OBJECT_PROPERTIES_PANEL = "ObjectProperties";
+	
+	private static final String RELATIONS_PANEL = "Relations";
 
     private static final String DATA_PROPERTIES_PANEL = "DataProperties";
 
@@ -49,6 +52,12 @@ public class SelectedEntityCardView extends AbstractOWLViewComponent implements 
     private static final String BLANK_PANEL = "Blank";
 
 
+	private OWLRelationSelectionListener RelSelListener = new OWLRelationSelectionListener() {
+				public void selectionChanged() throws Exception {
+                processRelationSelection();
+            }
+		};
+	
 
     protected void initialiseOWLView() throws Exception {
         setLayout(new BorderLayout());
@@ -62,6 +71,7 @@ public class SelectedEntityCardView extends AbstractOWLViewComponent implements 
                 processSelection();
             }
         });
+		getOWLWorkspace().getOWLSelectionModel().addListener(RelSelListener);
         getView().setShowViewBar(false);
         processSelection();
     }
@@ -73,12 +83,15 @@ public class SelectedEntityCardView extends AbstractOWLViewComponent implements 
                 "org.protege.editor.owl.ui.view.selectedentityview.classes",
                 reset);
 
+        addPane(RELATIONS_PANEL,
+                "/selected-entity-view-relation-panel.xml",
+                "org.protege.editor.owl.ui.view.selectedentityview.relations",
+                reset);
 
-        addPane(OBJECT_PROPERTIES_PANEL,
+		addPane(OBJECT_PROPERTIES_PANEL,
                 "/selected-entity-view-objectproperty-panel.xml",
                 "org.protege.editor.owl.ui.view.selectedentityview.objectproperties",
                 reset);
-
 
         addPane(DATA_PROPERTIES_PANEL,
                 "/selected-entity-view-dataproperty-panel.xml",
@@ -168,6 +181,9 @@ public class SelectedEntityCardView extends AbstractOWLViewComponent implements 
         }
     }
 
+	private void processRelationSelection(){
+		selectPanel(RELATIONS_PANEL);
+	}
 
     private void selectPanel(String name) {
         cardLayout.show(cardPanel, name);
@@ -179,5 +195,6 @@ public class SelectedEntityCardView extends AbstractOWLViewComponent implements 
             pane.saveViews();
             pane.dispose();
         }
+		getOWLWorkspace().getOWLSelectionModel().removeListener(RelSelListener);
     }
 }

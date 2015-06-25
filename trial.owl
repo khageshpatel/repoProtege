@@ -20,7 +20,10 @@
     <owl:Ontology rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9"/>
     
 
-	<rel:NewRelation rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#PartOf"/>
+	<rel:NewRelation rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#PartOf">
+		<rdf:type rdf:resource="&owl;AsymmetricRelation"/>
+	</rel:NewRelation>
+	
 	<rel:NewRelation rdf:about="http://www.semanticweb.org/khagesh/ontologies/2015/4/untitled-ontology-9#ContainedIn"/>
 	
     <!-- 

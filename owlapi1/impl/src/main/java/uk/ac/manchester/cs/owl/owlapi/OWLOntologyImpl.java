@@ -1620,6 +1620,15 @@ public class OWLOntologyImpl extends OWLObjectImpl implements
 			internals.removeRelation("",name);
 		}
 	}
+
+	public OWLRelation getRelation(String name){
+		if(name.split("#").length >= 2){
+			return internals.getRelation(name.split("#")[0],name.split("#")[1]);
+		}
+		else{
+			return internals.getRelation("",name);
+		}
+	}
 	
 	public boolean doesContainRelation(String name){
 		if(name.split("#").length >= 2){

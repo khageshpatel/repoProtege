@@ -908,6 +908,11 @@ public class RDFParser extends DefaultHandler implements RDFConstants {
             }
             checkUnsupportedAttributes(atts);
             propertyAttributes(m_subjectIRI, atts, m_reificationManager);
+			if(namespaceIRI.equals("http://www.pace.edu/rel-syntax-ns#")){
+				//Calling for symmetric and other cases
+				pushState( new RelationElementList(atts.getValue(0)));
+				return;
+			}
             pushState(new PropertyElementList(this));
         }
 
@@ -928,6 +933,72 @@ public class RDFParser extends DefaultHandler implements RDFConstants {
         }
     }
 
+	protected class RelationElementList extends State {
+
+		String relationName;
+	
+		public RelationElementList(String name) {
+            relationName = name;
+        }
+	
+        @Override
+        public void startElement(String namespaceIRI, String localName,
+                String qName, Attributes atts) throws SAXException {
+			if(qName.equals("rdf:type")){
+				pushState( new RelationRestrictionElement(relationName));
+				m_state.startElement(namespaceIRI, localName, qName, atts);
+			}
+        }
+
+        @Override
+        public void endElement(String namespaceIRI, String localName,
+                String qName) throws SAXException {
+			popState();
+        }
+
+        @Override
+        public void characters(char[] data, int start, int length)
+                throws SAXException {
+            if (!isWhitespaceOnly(data, start, length)) {
+                throw new RDFParserException(
+                        "Expecting an object element instead of character hoho content.",
+                        m_documentLocator);
+            }
+        }
+    }
+
+	protected class RelationRestrictionElement extends State {
+
+		String relationName;
+	
+		public RelationRestrictionElement(String name) {
+            relationName = name;
+        }
+	
+        @Override
+        public void startElement(String namespaceIRI, String localName,
+                String qName, Attributes atts) throws SAXException {
+			if(atts.getValue(0).split("#").length == 2)
+				m_consumer.statementWithResourceValue("relationConstraint",atts.getValue(0).split("#")[1], relationName);
+        }
+
+        @Override
+        public void endElement(String namespaceIRI, String localName,
+                String qName) throws SAXException {
+			popState();
+        }
+
+        @Override
+        public void characters(char[] data, int start, int length)
+                throws SAXException {
+            if (!isWhitespaceOnly(data, start, length)) {
+                throw new RDFParserException(
+                        "Expecting an object element instead of character hoho content.",
+                        m_documentLocator);
+            }
+        }
+    }
+	
     /**
      * Parses the propertyEltList production. The contents of the startElement
      * method implements also the propertyElt production.

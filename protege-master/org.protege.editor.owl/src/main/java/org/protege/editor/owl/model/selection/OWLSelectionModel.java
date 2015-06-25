@@ -73,6 +73,8 @@ public interface OWLSelectionModel {
      * @return The <code>OWLEntity</code> that was last selected.
      */
     public OWLEntity getSelectedEntity();
+	
+	public OWLRelation getLastSelectedRelation();
 
     /**
      * If any of the last selected entities are equal to
@@ -88,6 +90,7 @@ public interface OWLSelectionModel {
      */
     public void setSelectedEntity(OWLEntity entity);
 
+	public void setSelectedRelation(OWLRelation rel);
 
     /**
      * Instances of an axiom wrt the containing ontology
@@ -121,4 +124,9 @@ public interface OWLSelectionModel {
      * @param listener The listener to remove.
      */
     public void removeListener(OWLSelectionModelListener listener);
+	
+	public void addListener(OWLRelationSelectionListener listener);
+	
+	public void removeListener(OWLRelationSelectionListener listener);
+	
 }

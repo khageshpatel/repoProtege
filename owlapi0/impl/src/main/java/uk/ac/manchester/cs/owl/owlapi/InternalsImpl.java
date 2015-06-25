@@ -1077,6 +1077,18 @@ public class InternalsImpl extends AbstractInternalsImpl {
 	}
 	
 	@Override
+	public OWLRelation getRelation(String ns, String name){
+		if(relationMap.get(name) == null){
+			return null;
+		}
+		else
+			if(relationMap.get(name).getNS().equals(ns))
+				return relationMap.get(name);
+			else
+				return null;		
+	}
+	
+	@Override
 	public boolean doesContainRelation(String ns, String name){
 		if(relationMap.get(name) == null){
 			return false;

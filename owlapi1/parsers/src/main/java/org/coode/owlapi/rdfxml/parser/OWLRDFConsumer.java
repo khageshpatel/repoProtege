@@ -92,6 +92,7 @@ import org.semanticweb.owlapi.model.OWLOntologyFormat;
 import org.semanticweb.owlapi.model.OWLOntologyID;
 import org.semanticweb.owlapi.model.OWLOntologyLoaderConfiguration;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLRelation;
 import org.semanticweb.owlapi.model.OWLRuntimeException;
 import org.semanticweb.owlapi.model.SetOntologyID;
 import org.semanticweb.owlapi.model.UnloadableImportException;
@@ -2270,20 +2271,24 @@ public class OWLRDFConsumer implements RDFConsumer {
     public void statementWithResourceValue(String subject, String predicate,
             String object) throws SAXException {
         try {
+			
+			if(subject.equals("relationConstraint")){
+				addRelationConstraint(predicate, object);
+				return;
+			}
+		
             IRI subjectIRI = getIRI(subject);
             IRI predicateIRI = getIRI(predicate);
             predicateIRI = getSynonym(predicateIRI);
             IRI objectIRI = getSynonym(getIRI(object));
+			
 			if(object.split("#").length == 2){
 				if(predicate.split("#")[0].equals("http://www.pace.edu/rel-syntax-ns")){
-					//System.out.println("--> statementWithResourceValue called ");
-					//System.out.println(getOWLClass(subjectIRI).toStringID() + "-->" + predicate + "-->" + getOWLClass(objectIRI).toStringID());
 					handleRelatedDeclaration(getOWLClass(subjectIRI),predicate,getOWLClass(objectIRI));
 					this.ontology.printAllRelations();
 					return;
 				}	
 				if(object.split("#")[1].equals("NewRelation")){
-					//System.out.println("--> resource value called: "+object.split("#")[1]);
 					handleRelationDeclaration(subject);
 					System.out.println("--> " + this.ontology.doesContainRelation(subject));
 					return;
@@ -3570,4 +3575,35 @@ public class OWLRDFConsumer implements RDFConsumer {
 	public void handleRelationDeclaration(String relationName){
 		this.ontology.addRelation(relationName);
 	}
+
+	public void addRelationConstraint(String predicate, String object){
+		OWLRelation rel = ontology.getRelation(object);
+		System.out.println("--> Called with");
+		System.out.println(predicate);
+		if(predicate.equals("AsymmetricRelation")){
+            rel.setAsymmetric(true);
+			return;}
+        else if(predicate.equals("FunctionalRelation")){
+			rel.setFunctional(true);
+			return;}
+        else if(predicate.equals("InverseFunctionalRelation")){
+			rel.setInverseFunctional(true);
+			return;}
+        else if(predicate.equals("IrreflexiveRelation")){
+            rel.setIrreflexive(true);
+			return;}
+        else if(predicate.equals("ReflexiveRelation")){
+            rel.setReflexive(true);
+			return;}
+        else if(predicate.equals("SymmetricRelation")){
+			rel.setSymmetric(true);
+			return;}
+        else if(predicate.equals("TransitiveRelation")){
+            rel.setTransitive(true);
+			return;}
+        else{
+            System.out.println("----> INFO: No match found in addRelationConstraint");}
+
+	}
+	
 }

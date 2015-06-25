@@ -27,6 +27,8 @@ public class OWLSelectionModelImpl implements OWLSelectionModel {
 
     private List<OWLSelectionModelListener> listeners;
 
+	private List<OWLRelationSelectionListener> relListeners;
+	
     private OWLObject selectedObject;
 
     private OWLEntity lastSelectedEntity;
@@ -45,6 +47,7 @@ public class OWLSelectionModelImpl implements OWLSelectionModel {
 
     private OWLAxiomInstance lastSelectedAxiomInstance;
 
+	private OWLRelation lastRelation;
 
     private final OWLEntityVisitor updateVisitor = new OWLEntityVisitor() {
         public void visit(OWLClass cls) {
@@ -135,6 +138,7 @@ public class OWLSelectionModelImpl implements OWLSelectionModel {
 
     public OWLSelectionModelImpl() {
         listeners = new ArrayList<OWLSelectionModelListener>();
+		relListeners = new ArrayList<OWLRelationSelectionListener>();
         logger.setLevel(Level.WARN);
     }
 
@@ -151,6 +155,17 @@ public class OWLSelectionModelImpl implements OWLSelectionModel {
         listeners.remove(listener);
     }
 
+	public void addListener(OWLRelationSelectionListener listener) {
+        if (listener == null) {
+            throw new IllegalArgumentException("Listener must not be null!");
+        }
+        relListeners.add(listener);
+    }
+
+
+    public void removeListener(OWLRelationSelectionListener listener) {
+        relListeners.remove(listener);
+    }
 
     public OWLObject getSelectedObject() {
         return selectedObject;
@@ -173,7 +188,28 @@ public class OWLSelectionModelImpl implements OWLSelectionModel {
         }
     }
 
+	public void setSelectedRelation(OWLRelation rel){
+		if (rel == null) {
+            if (lastRelation != null) {
+                updateSelectedRelation(null);
+            }
+        }
+        else {
+            if (lastRelation == null) {
+                updateSelectedRelation(rel);
+            }
+            else if (!rel.toString().equals(lastRelation.toString())) {
+                updateSelectedRelation(rel);
+            }
+        }
+	}
 
+	private void updateSelectedRelation(OWLRelation rel){
+		lastRelation = rel;
+		fireRelationSelectionChanged();
+	}
+	
+	
     private void updateSelectedObject(OWLObject selObj) {
         selectedObject = selObj;
         updateLastSelection();
@@ -185,6 +221,17 @@ public class OWLSelectionModelImpl implements OWLSelectionModel {
         return lastSelectedEntity;
     }
 
+	private void fireRelationSelectionChanged(){
+		for (OWLRelationSelectionListener listener : new ArrayList<OWLRelationSelectionListener>(relListeners)) {
+            try {
+                listener.selectionChanged();
+            }
+            catch (Exception e) {
+                logger.warn("BAD LISTENER: (" + listener.getClass().getSimpleName() + ") ");
+                ProtegeApplication.getErrorLog().handleError(Thread.currentThread(), e);
+            }
+        }
+	}
 
     private void fireSelectionChanged() {
         for (OWLSelectionModelListener listener : new ArrayList<OWLSelectionModelListener>(listeners)) {
@@ -269,4 +316,9 @@ public class OWLSelectionModelImpl implements OWLSelectionModel {
     public OWLAxiomInstance getLastSelectedAxiomInstance() {
         return lastSelectedAxiomInstance;
     }
+	
+	public OWLRelation getLastSelectedRelation(){
+		return lastRelation;
+	}
+	
 }
