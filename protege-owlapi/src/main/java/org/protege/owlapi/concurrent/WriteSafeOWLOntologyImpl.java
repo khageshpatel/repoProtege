@@ -1331,6 +1331,10 @@ public class WriteSafeOWLOntologyImpl implements OWLMutableOntology, WriteSafeOW
 		delegate.removeRelation(name);
 	}
 	
+	public OWLRelation getRelation(String name){
+		return delegate.getRelation(name);
+	}
+	
 	public boolean doesContainRelation(String name){
 		return delegate.doesContainRelation(name);
 	}

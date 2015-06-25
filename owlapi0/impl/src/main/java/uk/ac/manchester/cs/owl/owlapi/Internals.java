@@ -522,6 +522,8 @@ public interface Internals {
 	
 	void removeRelation(String ns, String name);
 	
+	OWLRelation getRelation(String ns, String name);
+	
 	boolean doesContainRelation(String ns, String name);
 	
 	boolean isRelated(OWLClass A, String iri, String name, OWLClass B);

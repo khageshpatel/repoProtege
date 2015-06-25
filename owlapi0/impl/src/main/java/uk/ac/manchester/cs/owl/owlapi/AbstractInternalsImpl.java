@@ -436,6 +436,11 @@ public abstract class AbstractInternalsImpl implements Internals, Serializable {
 	@Override
 	public void removeRelation(String ns, String name){
 	}
+
+	@Override
+	public OWLRelation getRelation(String ns, String name){
+		return null;
+	}
 	
 	@Override
 	public boolean doesContainRelation(String ns, String name){

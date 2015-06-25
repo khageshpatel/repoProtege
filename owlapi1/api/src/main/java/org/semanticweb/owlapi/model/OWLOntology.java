@@ -2022,6 +2022,8 @@ public interface OWLOntology extends OWLObject, HasAxioms, HasLogicalAxioms,
 	 * Newly modified
 	 */
 	void addRelation(String name);
+
+	OWLRelation getRelation(String name);
 	
 	void removeRelation(String name);
 	

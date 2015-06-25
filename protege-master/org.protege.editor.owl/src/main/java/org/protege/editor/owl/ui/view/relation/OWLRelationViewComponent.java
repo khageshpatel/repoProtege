@@ -17,6 +17,9 @@ import org.semanticweb.owlapi.model.OWLOntology;
 
 import org.semanticweb.owlapi.model.OWLRelationChangeListener;
 
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import java.awt.BorderLayout;
 import org.apache.log4j.Logger;
 import org.protege.editor.owl.ui.view.AbstractOWLViewComponent;
@@ -34,6 +37,12 @@ public class OWLRelationViewComponent extends AbstractOWLViewComponent {
 		}
 	};
 	
+	private ListSelectionListener relSelListener = new ListSelectionListener(){
+
+        public void valueChanged(ListSelectionEvent e) {
+            getOWLWorkspace().getOWLSelectionModel().setSelectedRelation(list.getSelectedValue());
+        }
+    };
 	
 	
     @Override
@@ -45,10 +54,13 @@ public class OWLRelationViewComponent extends AbstractOWLViewComponent {
 		reload();
 		setupActions();
 		add(ComponentFactory.createScrollPane(list));
+		list.addListSelectionListener(relSelListener);
     }
 
 	@Override
 	protected void disposeOWLView() {
+		list.removeListSelectionListener(relSelListener);
+		actOnt.removeRelationChangeListner(relListner);
 	}
 	
 	private void reload(){

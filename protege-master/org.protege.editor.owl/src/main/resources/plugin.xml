@@ -453,6 +453,14 @@
         <category value="@org.protege.objectpropertycategory"/>
     </extension>
 
+	<extension
+            id="OWLRelationCharacteristics"
+            point="org.protege.editor.core.application.ViewComponent">
+        <label value="Characteristics"/>
+        <class value="org.protege.editor.owl.ui.view.relation.OWLRelationCharacteristicsViewComponent"/>
+        <headerColor value="@org.protege.objectpropertycolor"/>
+        <category value="@org.protege.objectpropertycategory"/>
+    </extension>
 
     <!-- Data property views -->
 

@@ -438,6 +438,11 @@ public abstract class AbstractInternalsImpl implements Internals, Serializable {
 	}
 	
 	@Override
+	public OWLRelation getRelation(String ns, String name){
+		return null;
+	}
+	
+	@Override
 	public boolean doesContainRelation(String ns, String name){
 		System.out.println("--> Called abstract Impl object this should not happen");
 		return false;

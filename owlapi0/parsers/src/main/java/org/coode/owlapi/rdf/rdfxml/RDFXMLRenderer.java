@@ -246,7 +246,60 @@ public class RDFXMLRenderer extends RDFRendererBase {
 		RelString.append("	");
 		RelString.append("<rel:NewRelation rdf:about=\"");
 		RelString.append(rel.toString());
-		RelString.append("\"/>\n");
+		boolean writeEnd = false;
+		if(rel.isAsymmetric()){
+			if(!writeEnd){
+				writeEnd = true;
+				RelString.append("\">\n");
+			}
+			RelString.append("		<rdf:type rdf:resource=\"&owl;AsymmetricRelation\"/>\n");
+		}
+		if(rel.isFunctional()){
+			if(!writeEnd){
+				writeEnd = true;
+				RelString.append("\">\n");
+			}
+			RelString.append("		<rdf:type rdf:resource=\"&owl;FunctionalRelation\"/>\n");
+		}
+		if(rel.isInverseFunctional()){
+			if(!writeEnd){
+				writeEnd = true;
+				RelString.append("\">\n");
+			}
+			RelString.append("		<rdf:type rdf:resource=\"&owl;InverseFunctionalRelation\"/>\n");
+		}
+		if(rel.isIrreflexive()){
+			if(!writeEnd){
+				writeEnd = true;
+				RelString.append("\">\n");
+			}
+			RelString.append("		<rdf:type rdf:resource=\"&owl;IrreflexiveRelation\"/>\n");
+		}
+		if(rel.isReflexive()){
+			if(!writeEnd){
+				writeEnd = true;
+				RelString.append("\">\n");
+			}
+			RelString.append("		<rdf:type rdf:resource=\"&owl;ReflexiveRelation\"/>\n");
+		}
+		if(rel.isSymmetric()){
+			if(!writeEnd){
+				writeEnd = true;
+				RelString.append("\">\n");
+			}
+			RelString.append("		<rdf:type rdf:resource=\"&owl;SymmetricRelation\"/>\n");
+		}
+		if(rel.isTransitive()){
+			if(!writeEnd){
+				writeEnd = true;
+				RelString.append("\">\n");
+			}
+			RelString.append("		<rdf:type rdf:resource=\"&owl;TransitiveRelation\"/>\n");
+		}
+		if(writeEnd)
+			RelString.append("	</rel:NewRelation>\n");
+		else
+			RelString.append("\"/>\n");
 		relWriter.write(RelString.toString());
 	}
 	
